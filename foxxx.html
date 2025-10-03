@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FOX CRICKET</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <meta name="referrer" content="no-referrer"/>
+  
+  <!-- Plyr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css"/>
+
+  <!-- HLS.js -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <!-- Plyr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.polyfilled.js"></script>
+
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    .plyr {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <!-- removed muted -->
+    <video autoplay playsinline id="player" controls preload="metadata"></video>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const video = document.getElementById("player");
+      const source = "https://media.onestream.studio/content/hls/live/live_4476994_m94sy760y/hls.m3u8";
+
+      if (Hls.isSupported()) {
+        const hls = new Hls({
+          xhrSetup: function (xhr) {
+            xhr.setRequestHeader("Ortmp", "south-asia-mumbai-1");
+            xhr.setRequestHeader("X-Origin-Host", "south-asia-mumbai-1");
+            xhr.setRequestHeader("vKey", "live_4476994_m94sy760y?auth=p_auth_4476994_dnen1p0cz");
+            xhr.setRequestHeader("Referer", "https://app.onestream.live/multicast");
+            xhr.setRequestHeader("User-Agent", "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36");
+          }
+        });
+        hls.loadSource(source);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          video.play();
+          video.volume = 1.0; // max volume
+          video.muted = false; // ensure sound is on
+        });
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = source;
+        video.addEventListener("loadedmetadata", () => {
+          video.play();
+          video.volume = 1.0;
+          video.muted = false;
+        });
+      }
+
+      new Plyr(video, { autoplay: true });
+    });
+  </script>
+</body>
+</html>
