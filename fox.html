@@ -40,51 +40,26 @@
       height: 100%;
       object-fit: contain;
       background: #000;
-      transition: transform 0.3s ease;
     }
     .plyr {
       height: 100%;
       width: 100%;
     }
-    .rotate-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 22px;
-      cursor: pointer;
-      z-index: 1000;
-    }
   </style>
 </head>
 <body>
   <div class="video-container">
+    <!-- removed muted -->
     <video autoplay playsinline id="player" controls preload="metadata"></video>
-    <button class="rotate-btn" id="rotateBtn">↻</button>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const video = document.getElementById("player");
-      const rotateBtn = document.getElementById("rotateBtn");
       const source = "https://media.onestream.studio/content/hls/live/live_4476994_m94sy760y/hls.m3u8";
-      let rotation = 0;
 
-      // HLS.js with 2-minute playback buffer
       if (Hls.isSupported()) {
         const hls = new Hls({
-          liveSyncDuration: 2,       // try to keep latency low
-          liveMaxLatencyDuration: 5, // max drift
-          maxBufferLength: 120,      // keep up to 2 minutes in buffer
-          backBufferLength: 120,     // allow rewinding 2 minutes
-          maxMaxBufferLength: 121,
-          enableWorker: true,
-          lowLatencyMode: true,
           xhrSetup: function (xhr) {
             xhr.setRequestHeader("Ortmp", "south-asia-mumbai-1");
             xhr.setRequestHeader("X-Origin-Host", "south-asia-mumbai-1");
@@ -97,8 +72,8 @@
         hls.attachMedia(video);
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
           video.play();
-          video.volume = 1.0;
-          video.muted = false;
+          video.volume = 1.0; // max volume
+          video.muted = false; // ensure sound is on
         });
       } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
         video.src = source;
@@ -109,42 +84,7 @@
         });
       }
 
-      // Plyr with progress bar enabled
-      new Plyr(video, { 
-        autoplay: true,
-        controls: [
-          'play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'
-        ]
-      });
-
-      // Rotate button logic
-      rotateBtn.addEventListener("click", () => {
-        rotation = (rotation + 90) % 360;
-        video.style.transform = `rotate(${rotation}deg)`;
-        if (screen.orientation && screen.orientation.lock) {
-          if (rotation === 90 || rotation === 270) {
-            screen.orientation.lock("landscape").catch(() => {});
-          } else {
-            screen.orientation.lock("portrait").catch(() => {});
-          }
-        }
-      });
-
-      // Auto-detect orientation
-      window.addEventListener("orientationchange", () => {
-        let angle = window.orientation;
-        if (angle === 90 || angle === -90) {
-          video.style.transform = "rotate(0deg)";
-          if (screen.orientation && screen.orientation.lock) {
-            screen.orientation.lock("landscape").catch(() => {});
-          }
-        } else {
-          video.style.transform = "rotate(0deg)";
-          if (screen.orientation && screen.orientation.lock) {
-            screen.orientation.lock("portrait").catch(() => {});
-          }
-        }
-      });
+      new Plyr(video, { autoplay: true });
     });
   </script>
 </body>
