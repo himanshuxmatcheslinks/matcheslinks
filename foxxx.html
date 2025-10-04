@@ -56,14 +56,14 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const video = document.getElementById("player");
-      const source = "https://media.onestream.studio/content/hls/live/live_4476994_m94sy760y/hls.m3u8";
+      const source = "https://media.onestream.studio/content/hls/live/live_4496669_wp8zi58uw/hls.m3u8";
 
       if (Hls.isSupported()) {
         const hls = new Hls({
           xhrSetup: function (xhr) {
             xhr.setRequestHeader("Ortmp", "south-asia-mumbai-1");
             xhr.setRequestHeader("X-Origin-Host", "south-asia-mumbai-1");
-            xhr.setRequestHeader("vKey", "live_4476994_m94sy760y?auth=p_auth_4476994_dnen1p0cz");
+            xhr.setRequestHeader("vKey", "live_4496669_wp8zi58uw?auth=p_auth_4496669_x660la7hf");
             xhr.setRequestHeader("Referer", "https://app.onestream.live/multicast");
             xhr.setRequestHeader("User-Agent", "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36");
           }
