@@ -1,0 +1,2059 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>MatchesLinks - Premium Sports Channels</title>
+  <meta name="description" content="Access premium sports channels and live events worldwide" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      /* Enhanced Color System */
+      --primary: 264, 83%, 75%;
+      --primary-dark: 264, 83%, 65%;
+      --primary-light: 264, 83%, 85%;
+      --secondary: 222, 47%, 11%;
+      --accent: 45, 100%, 51%;
+      --success: 142, 76%, 36%;
+      --danger: 0, 84%, 60%;
+      --warning: 38, 92%, 50%;
+      
+      /* Background System */
+      --background: 225, 25%, 8%;
+      --background-secondary: 225, 25%, 12%;
+      --surface: 225, 25%, 15%;
+      --surface-hover: 225, 25%, 20%;
+      
+      /* Text Colors */
+      --foreground: 210, 20%, 98%;
+      --foreground-secondary: 217, 11%, 85%;
+      --foreground-muted: 217, 11%, 65%;
+      
+      /* Glass Effects */
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(282, 83%, 65%));
+      --gradient-surface: linear-gradient(135deg, hsl(var(--surface)), hsl(225, 25%, 18%));
+      --gradient-hero: linear-gradient(135deg, hsla(var(--primary), 0.1), hsla(282, 83%, 65%, 0.1));
+      
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 40px hsla(var(--primary), 0.3);
+      
+      /* Animation */
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: all 0.2s ease-out;
+      --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .light {
+      --background: 0, 0%, 100%;
+      --background-secondary: 0, 0%, 98%;
+      --surface: 0, 0%, 95%;
+      --surface-hover: 0, 0%, 90%;
+      --foreground: 225, 25%, 8%;
+      --foreground-secondary: 225, 25%, 20%;
+      --foreground-muted: 225, 25%, 45%;
+      --glass-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: var(--transition);
+      touch-action: manipulation;
+      line-height: 1.6;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+    
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, hsla(var(--primary), 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, hsla(282, 83%, 65%, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, hsla(var(--accent), 0.05) 0%, transparent 50%);
+      z-index: -1;
+      animation: backgroundShift 20s ease-in-out infinite;
+    }
+    
+    @keyframes backgroundShift {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    /* Utility Classes */
+    .blur-background {
+      filter: blur(10px);
+      pointer-events: none;
+      user-select: none;
+    }
+    
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+    }
+    
+    .glass-heavy {
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    
+    .light .glass-heavy {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: hsla(var(--background), 0.9);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: hsl(var(--foreground));
+      transition: var(--transition);
+    }
+    
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+    
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+      background: var(--gradient-primary);
+      color: white;
+      font-size: 1.3rem;
+      box-shadow: var(--shadow-glow);
+      transition: var(--transition);
+    }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(5deg) scale(1.05);
+      box-shadow: 0 0 60px hsla(var(--primary), 0.5);
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .search-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-input {
+      background: hsl(var(--surface));
+      border: 1px solid var(--glass-border);
+      border-radius: 2rem;
+      padding: 0.75rem 1rem 0.75rem 3rem;
+      color: hsl(var(--foreground));
+      width: 220px;
+      transition: var(--transition);
+      font-size: 0.875rem;
+      outline: none;
+      backdrop-filter: blur(10px);
+    }
+    
+    .search-input:focus {
+      border-color: hsl(var(--primary));
+      box-shadow: 0 0 0 3px hsla(var(--primary), 0.2);
+      background: hsl(var(--surface-hover));
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      color: hsl(var(--foreground-muted));
+      font-size: 0.875rem;
+      transition: var(--transition);
+    }
+    
+    .search-input:focus + .search-icon {
+      color: hsl(var(--primary));
+    }
+    
+    .theme-toggle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      background: hsl(var(--surface));
+      color: hsl(var(--foreground));
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .theme-toggle:hover {
+      background: hsl(var(--surface-hover));
+      transform: rotate(180deg) scale(1.1);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    /* Verification Countdown */
+    .verification-countdown {
+      position: absolute;
+      top: -10px;
+      right: 0;
+      background: linear-gradient(135deg, hsl(var(--success)), hsl(142, 70%, 45%));
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+      animation: pulse 2s infinite;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: var(--transition);
+    }
+    
+    .verification-countdown.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .verification-countdown.warning {
+      background: linear-gradient(135deg, hsl(var(--warning)), hsl(48, 96%, 53%));
+      color: black;
+    }
+    
+    .verification-countdown.danger {
+      background: linear-gradient(135deg, hsl(var(--danger)), hsl(0, 72%, 51%));
+      animation: pulse 1s infinite;
+    }
+    
+    /* Main Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 1.5rem;
+      border-radius: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-hero);
+      border-radius: 1.5rem;
+      opacity: 0.8;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--primary)));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: hsl(var(--foreground-secondary));
+      max-width: 48rem;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    
+    .hero-badge {
+      padding: 0.6rem 1.2rem;
+      border-radius: 2rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: hsl(var(--foreground-secondary));
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .hero-badge:hover {
+      transform: translateY(-2px);
+      background: hsl(var(--surface-hover));
+      color: hsl(var(--primary));
+    }
+    
+    /* Category Sections */
+    .category-section {
+      margin-bottom: 4rem;
+    }
+    
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    .category-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 0.75rem;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .category-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: hsl(var(--foreground));
+      letter-spacing: -0.5px;
+    }
+    
+    /* Channel Grid - MADE SMALLER */
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .channel-card {
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      height: 260px; /* REDUCED FROM 320px */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .channel-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: hsl(var(--primary));
+      background: hsl(var(--surface-hover));
+    }
+    
+    .channel-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    
+    .channel-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .channel-logo-container {
+      height: 80px; /* REDUCED FROM 100px */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .channel-logo {
+      max-height: 80px; /* REDUCED FROM 100px */
+      max-width: 150px; /* REDUCED FROM 180px */
+      object-fit: contain;
+      border-radius: 0.5rem;
+      transition: var(--transition);
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    }
+    
+    .channel-card:hover .channel-logo {
+      transform: scale(1.05);
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+    }
+    
+    .channel-name {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: hsl(var(--foreground));
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 48px;
+      line-height: 1.4;
+    }
+    
+    .play-button {
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      border: none;
+      background: var(--gradient-primary);
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .play-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .play-button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    
+    .play-button:hover::before {
+      transform: translateX(100%);
+    }
+    
+    .upcoming-button {
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      border: none;
+      background: linear-gradient(135deg, hsl(var(--surface)), hsl(225, 25%, 20%));
+      color: hsl(var(--foreground-muted));
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: not-allowed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      opacity: 0.8;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .light .upcoming-button {
+      background: linear-gradient(135deg, hsl(var(--surface)), hsl(0, 0%, 85%));
+    }
+    
+    /* Badges */
+    .live-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, hsl(var(--danger)), hsl(0, 72%, 51%));
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 1.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      animation: pulse 2s infinite;
+      box-shadow: 0 4px 12px hsla(var(--danger), 0.4);
+    }
+    
+    .upcoming-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, hsl(var(--warning)), hsl(48, 96%, 53%));
+      color: black;
+      padding: 0.3rem 0.6rem;
+      border-radius: 1.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 4px 12px hsla(var(--warning), 0.4);
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(0.98); }
+    }
+    
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-link {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      background: hsl(var(--surface));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: hsl(var(--foreground-muted));
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .social-link:hover {
+      background: hsl(var(--primary));
+      color: white;
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .footer-text {
+      color: hsl(var(--foreground-muted));
+      font-size: 0.875rem;
+    }
+    
+    /* Fixed Elements */
+    .live-counter-container {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 40;
+      padding: 0.75rem 1rem;
+      border-radius: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .live-counter {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+    
+    .live-count {
+      background: transparent;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      animation: pulse 2s infinite;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .last-updated {
+      font-size: 0.65rem;
+      opacity: 0.7;
+      color: hsl(var(--foreground-muted));
+    }
+    
+    /* IMPROVED TELEGRAM POPUP - SMALLER & LESS INTRUSIVE */
+    .telegram-popup {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 40;
+      padding: 0.75rem 1rem;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, hsl(200, 85%, 45%), hsl(220, 80%, 50%));
+      color: white;
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      opacity: 0.9;
+    }
+    
+    .telegram-popup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+      opacity: 1;
+    }
+    
+    .telegram-popup i {
+      font-size: 0.9rem;
+    }
+    
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      width: 90%;
+      max-width: 64rem;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transform: scale(0.9);
+      transition: var(--transition);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+    }
+    
+    .modal-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: hsl(var(--foreground));
+    }
+    
+    .modal-title-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 0.5rem;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .close-button {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: hsl(var(--surface));
+      border-radius: 0.5rem;
+      color: hsl(var(--foreground-muted));
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    
+    .close-button:hover {
+      background: hsla(var(--danger), 0.1);
+      color: hsl(var(--danger));
+      transform: scale(1.1);
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: black;
+    }
+    
+    .video-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+/* Video Modal */
+#videoModal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#videoModal.active {
+  display: flex;
+}
+
+#videoModal .video-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background: #000;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+#videoModal iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 8px;
+}
+
+#videoModal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+  z-index: 10000;
+}
+
+/* Optional: responsive height for mobile */
+@media (max-width: 600px) {
+  #videoModal iframe {
+    height: 300px;
+  }
+}    
+  
+  
+    /* Verification Modal */
+    .verify-modal {
+      width: 90%;
+      max-width: 28rem;
+      padding: 2.5rem;
+      border-radius: 1.25rem;
+      text-align: center;
+      z-index: 110;
+      backdrop-filter: blur(30px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .verify-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: hsl(var(--primary));
+      margin-bottom: 1.25rem;
+    }
+    
+    .verify-description {
+      color: hsl(var(--foreground-secondary));
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    
+    .tutorial-link {
+      display: block;
+      margin-bottom: 1.5rem;
+      color: hsl(var(--primary));
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .tutorial-link:hover {
+      background: hsla(var(--primary), 0.1);
+      transform: translateY(-1px);
+    }
+    
+    .verify-button {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: none;
+      background: var(--gradient-primary);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .verify-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px hsla(var(--primary), 0.5);
+    }
+    
+    .verify-button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    
+    .verify-button:hover::before {
+      transform: translateX(100%);
+    }
+    
+    /* ENHANCED RESPONSIVE DESIGN */
+    @media (max-width: 1200px) {
+      .channels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 1.25rem;
+      }
+    }
+    
+    @media (max-width: 1024px) {
+      .channels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      
+      .channel-card {
+        height: 240px;
+        padding: 1.25rem;
+      }
+      
+      .channel-logo-container {
+        height: 70px;
+      }
+      
+      .channel-logo {
+        max-height: 70px;
+        max-width: 130px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+      
+      .controls {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .search-input {
+        width: 180px;
+        padding: 0.6rem 0.8rem 0.6rem 2.5rem;
+      }
+      
+      .logo-text {
+        font-size: 1.3rem;
+      }
+      
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+      }
+      
+      .theme-toggle {
+        width: 36px;
+        height: 36px;
+      }
+      
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      
+      .hero {
+        margin-bottom: 3rem;
+        padding: 2.5rem 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .category-section {
+        margin-bottom: 3rem;
+      }
+      
+      .category-title {
+        font-size: 1.5rem;
+      }
+      
+      .category-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
+      
+      .channels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      
+      .channel-card {
+        height: 220px;
+        padding: 1rem;
+      }
+      
+      .channel-logo-container {
+        height: 60px;
+        margin-bottom: 0.75rem;
+      }
+      
+      .channel-logo {
+        max-height: 60px;
+        max-width: 120px;
+      }
+      
+      .channel-name {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+        height: 40px;
+      }
+      
+      .play-button, .upcoming-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+      
+      .verification-countdown {
+        position: relative;
+        top: 0;
+        margin-top: 0.75rem;
+        align-self: center;
+      }
+      
+      .live-counter-container {
+        bottom: 6rem;
+        right: 1rem;
+        padding: 0.6rem 0.8rem;
+      }
+      
+      .telegram-popup {
+        bottom: 6rem;
+        left: 1rem;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.75rem;
+      }
+      
+      .footer {
+        padding: 2.5rem 1rem;
+      }
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .channels-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 0.75rem;
+      }
+      
+      .channel-card {
+        height: 200px;
+        padding: 0.75rem;
+      }
+      
+      .channel-logo-container {
+        height: 50px;
+        margin-bottom: 0.5rem;
+      }
+      
+      .channel-logo {
+        max-height: 50px;
+        max-width: 100px;
+      }
+      
+      .channel-name {
+        font-size: 0.85rem;
+        height: 36px;
+        margin-bottom: 0.5rem;
+      }
+      
+      .play-button, .upcoming-button {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+      }
+      
+      .live-counter-container {
+        bottom: 5rem;
+        right: 0.75rem;
+        padding: 0.5rem 0.7rem;
+      }
+      
+      .telegram-popup {
+        bottom: 5rem;
+        left: 0.75rem;
+        padding: 0.5rem 0.7rem;
+        font-size: 0.7rem;
+      }
+      
+      .verify-modal {
+        padding: 2rem;
+        margin: 1rem;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 0.5rem;
+      }
+      
+      .hero {
+        padding: 2rem 0.75rem;
+      }
+      
+      .container {
+        padding: 1rem 0.75rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .channels-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+      
+      .channel-card {
+        height: 180px;
+        padding: 0.6rem;
+      }
+      
+      .channel-logo-container {
+        height: 45px;
+      }
+      
+      .channel-logo {
+        max-height: 45px;
+        max-width: 90px;
+      }
+      
+      .channel-name {
+        font-size: 0.8rem;
+        height: 32px;
+      }
+      
+      .live-counter-container, .telegram-popup {
+        bottom: 4.5rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.65rem;
+      }
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--background));
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--surface-hover));
+      border-radius: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--primary));
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-satellite-dish"></i>
+        </div>
+        <div class="logo-text">MatchesLinks</div>
+      </a>
+      <div class="controls">
+        <div class="search-container">
+          <input type="text" placeholder="Search channels..." class="search-input" id="searchInput">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <div id="verificationCountdown" class="verification-countdown">
+        <i class="fas fa-shield-alt"></i>
+        <span id="countdownText">Verification: 24h 00m</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero glass-heavy">
+      <div class="hero-content">
+        <h1>Premium Sports Channels Collection</h1>
+        <p>Access the best live sports events and channels from around the world in one place. Watch your favorite teams compete in ultra high-definition quality.</p>
+        <div class="hero-badges">
+          <span class="hero-badge">🔥 HD Quality</span>
+          <span class="hero-badge">⚡ Live Events</span>
+          <span class="hero-badge">🌍 Global Coverage</span>
+          <span class="hero-badge">📱 Multi-Device</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Events -->
+    <section class="category-section">
+      <div class="category-header">
+        <div class="category-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h2 class="category-title">Live Events</h2>
+      </div>
+      <div class="channels-grid" id="liveEventsGrid"></div>
+    </section>
+
+    <!-- International Channels -->
+    <section class="category-section">
+      <div class="category-header">
+        <div class="category-icon">
+          <i class="fas fa-globe-americas"></i>
+        </div>
+        <h2 class="category-title">International Channels</h2>
+      </div>
+      <div class="channels-grid" id="internationalGrid"></div>
+    </section>
+
+    <!-- Sports Channels -->
+    <section class="category-section">
+      <div class="category-header">
+        <div class="category-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h2 class="category-title">Sports Channels</h2>
+      </div>
+      <div class="channels-grid" id="sportsGrid"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://t.me/+e3-eAje291cxNGNl" class="social-link" target="_blank" title="Telegram">
+        <i class="fab fa-telegram"></i>
+      </a>
+      <a href="#" class="social-link" title="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="social-link" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="social-link" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <p class="footer-text">© 2025 @Matcheslinks. All rights reserved. | Premium Sports Streaming Platform</p>
+  </footer>
+
+  <!-- Live Counter -->
+  <div class="live-counter-container glass">
+    <div class="live-counter">
+      <span class="live-count">
+        <script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script>
+        <script type="text/javascript">sc_online_t(1707487,"🔴 online","FF0000");</script>
+      </span>
+    </div>
+    <div class="last-updated">Updated: <span id="lastUpdated">Loading...</span></div>
+  </div>
+
+  <!-- Telegram Popup -->
+  <a href="https://t.me/+e3-eAje291cxNGNl" class="telegram-popup" target="_blank" id="telegramPopup">
+    <i class="fab fa-telegram"></i>
+    Join Community
+  </a>
+
+<!-- Video Modal -->
+<div id="videoModal" class="modal">
+  <div class="modal-content video-content">
+    <span class="close-button" onclick="closeVideoModal()">&times;</span>
+    <h2 id="videoTitle"></h2>
+    <iframe 
+      id="videoFrame" 
+      src="" 
+      frameborder="0" 
+      allow="autoplay; encrypted-media; fullscreen" 
+      sandbox="allow-same-origin allow-scripts" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- Verification Modal -->
+  <div class="modal-overlay" id="verifyModal">
+    <div class="verify-modal glass-heavy">
+      <h2 class="verify-title">
+        <i class="fas fa-shield-alt"></i>
+        VERIFICATION REQUIRED
+      </h2>
+      <p class="verify-description">
+        To access our premium sports channels and live events, please complete a quick verification process. This helps us maintain quality service and prevent abuse.
+      </p>
+      <a href="https://t.me/tutorialbymatcheslinks/20" class="tutorial-link" target="_blank">
+        <i class="fas fa-question-circle"></i> Confused? Watch The Tutorial how To do verification
+      </a>
+      <button class="verify-button" onclick="handleVerification()">
+        VERIFY NOW
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Performance monitoring
+    const startTime = performance.now();
+    let searchTimeout;
+
+    // FIXED Channel Data - Added missing closing bracket and removed extra bracket
+    const liveEvents = [
+      {
+        name: "Armenia vs Portugal European Qualifiers (Sonyliv)",
+        logo: "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000007432/1756966607635482_EQ_Armenia_Vs_Portugal_Prommo_landscape_thumb.jpg",
+        url: "https://css-player.vercel.app/?url=https://live.dinesh29.com.np/stream/jiotvplus/sonyten2hd/master.m3u8",
+        live: true,
+        openInNewTab: false,
+        upcoming: true,
+      },
+      {
+        name: "Armenia vs Portugal European Qualifiers (Sony Ten 2)",
+        logo: "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000007432/1756966607635482_EQ_Armenia_Vs_Portugal_Prommo_landscape_thumb.jpg",
+        url: "https://sonyten2-drab.vercel.app/",
+        live: true,
+        openInNewTab: false,
+        upcoming: true,
+      },
+      {
+        name: "England vs Andorra European Qualifiers (Sony Liv)",
+        logo: "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000007432/1756966703623482_EQ_England_Vs_Andorra_Prommo_landscape_thumb.jpg",
+        url: "https://css-player.vercel.app/?url=https://live.dinesh29.com.np/stream/jiotvplus/sonyten2hd/master.m3u8",
+        live: true,
+        openInNewTab: false,
+        upcoming: true,
+      },
+      {
+        name: "England vs Andorra European Qualifiers (Sony Ten 2)",
+        logo: "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000007432/1756966703623482_EQ_England_Vs_Andorra_Prommo_landscape_thumb.jpg",
+        url: "https://sonyten2-drab.vercel.app/",
+        live: true,
+        openInNewTab: false,
+        upcoming: true,
+      },
+      {
+        name: "Ukraine vs France European Qualifiers (Sony Liv)",
+        logo: "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000007432/1756967385121482_EQ_Ukraine_vs_France_Prommo_landscape_thumb.jpg",
+        url: "https://css-player.vercel.app/?url=https://live.dinesh29.com.np/stream/jiotvplus/sonyten2hd/master.m3u8",
+        live: true,
+        openInNewTab: false,
+        upcoming: true,
+      },
+      {
+        name: "Ukraine vs France European Qualifiers (Sony Ten 2)",
+        logo: "https://origin-staticv2.sonyliv.com/videoasset_images/manage_file/1000007432/1756967385121482_EQ_Ukraine_vs_France_Prommo_landscape_thumb.jpg",
+        url: "https://sonyten2-drab.vercel.app/",
+        live: true,
+        openInNewTab: false,
+        upcoming: true,
+      }
+    ]; // FIXED: Added missing closing bracket
+
+    const internationalChannels = [
+      {
+        name: "USA East",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3U6vFqKlugKE9SLtLwnOf7sGhBI_UMhEKfwOsbNm93m9ffwngqZQ7Bh5q&s=10",
+        url: "https://usa-east888-v2b2.vercel.app/"
+      },
+      {
+        name: "NBC",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/3/3f/NBC_logo.svg",
+        url: "https://flourishing-pudding-37c887.netlify.app/"
+      },
+      {
+        name: "Universo",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBG2mqncvr4lOSb1xsyP1T-URBBvO5-4YKFQ&s",
+        url: "https://kaleidoscopic-narwhal-9aa0ff.netlify.app/"
+      },
+      {
+        name: "TELEMUNDO",
+        logo: "https://i0.wp.com/thehill.com/wp-content/uploads/sites/2/2017/05/telemundologo.png?w=2000&ssl=1",
+        url: "https://fantastic-chimera-85d2ed.netlify.app/"
+      }
+    ];
+
+    const sportsChannels = [
+      {
+        name: "Fox Cricket 501 HD",
+        logo: "https://image.pngaaa.com/428/3764428-middle.png",
+        url: "https://tranquil-bavarois-6aa407.netlify.app/"
+      },
+      {
+        name: "Astro Cricket",
+        logo: "https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/197_144.png",
+        url: "https://astro-cricket-ercs.vercel.app/"
+      },
+      {
+        name: "WWE Network",
+        logo: "https://images2.minutemediacdn.com/image/upload/c_crop,w_3000,h_1687,x_0,y_187/c_fill,w_1200,ar_4:3,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/wrestling_on_fannation/01jda6458mwc89pr94wj.png",
+        url: "https://wwe-network.vercel.app/"
+      },
+      {
+        name: "Fubo Sports",
+        logo: "https://images.fubo.tv/station_logos/fubo-sports23_m.png",
+        url: "https://fubo-sports.vercel.app/"
+      },
+      {
+        name: "SKY SPORTS LALIGA",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh1IoJO-olMV3VE5nHDw1NU8ExocnQS-wVwScHAwBbHjDSwaouUvu5eKb17DzuBUw98w&usqp=CAU",
+        url: "https://sky-sports-laliga.vercel.app/"
+      },
+      {
+        name: "SKY SPORTS BUNDESLIGA",
+        logo: "https://pbs.twimg.com/media/FYjlInYXEAIfUAT.jpg:large",
+        url: "https://reliable-mousse-84f3ca.netlify.app/"
+      },
+      {
+        name: "PREMIER LEAGUE TV",
+        logo: "https://ntvb.tmsimg.com/assets/p3605402_b_h8_ar.jpg?w=1280&h=720",
+        url: "https://serene-begonia-843810.netlify.app/"
+      },
+      {
+        name: "REAL MADRID TV",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95_GnP3XFTnrRGkU_XHi_UcoEwc92sLJmcg&s",
+        url: "https://jolly-treacle-7b99e0.netlify.app/"
+      },
+      {
+        name: "LALIGA TV",
+        logo: "https://pbs.twimg.com/profile_images/1747989339764572160/7nxm03-2_200x200.jpg",
+        url: "https://laliga-tv.vercel.app/"
+      },
+      {
+        name: "ZIGGO SPORTS 1",
+        logo: "https://www.planetzone.nl/wp-content/uploads/ziggosport.png",
+        url: "https://beamish-meringue-ce6ba2.netlify.app/"
+      },
+      {
+        name: "ZIGGO SPORTS 2",
+        logo: "https://www.planetzone.nl/wp-content/uploads/ziggosport.png",
+        url: "https://poetic-nasturtium-c034b2.netlify.app/"
+      },
+      {
+        name: "Sky Sports Cricket",
+        logo: "https://media.info/l/f/1/1134.1507600280.png",
+        url: "https://profound-horse-9b6397.netlify.app/"
+      },
+      {
+        name: "Sky Sports Football",
+        logo: "https://i.pinimg.com/736x/c2/e5/e8/c2e5e8e6927f9518040072db395b907c.jpg",
+        url: "https://profound-horse-9b6397.netlify.app/"
+      },
+      {
+        name: "Sky Sports Main Event",
+        logo: "https://i.pinimg.com/736x/c2/e5/e8/c2e5e8e6927f9518040072db395b907c.jpg",
+        url: "https://sky-sports-main-eveent.vercel.app/"
+      },
+      {
+        name: "Sky Sports Premier League",
+        logo: "https://archive.org/download/SkySportsPremierLeague_201708/sky%20sports%20premier%20league.png",
+        url: "https://superlative-horse-d6a6c5.netlify.app/"
+      },
+      {
+        name: "TSN 1",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAn1BMVEX////tHSTsAABDQ0T+8vPsABH72dn95OXtFh7sAAzwRUr83d72nqDsAAX4urvtGSA7OzzuLTP19fX81dZiYmPtEBn3qqwzMzX6zM30h4ryaW3/+Pj0g4ZbW1vuLDLvOj+JiYnybXH3o6X1l5n5xMXxXGBVVVbxYmbwUlb96erf39/zeHv4tbfuJCzwSk73r7DX19csLC2Wlpb1kJPq6upyGUrmAAAFEElEQVR4nO3ae1viOBQH4DZQaIEaEYNcFAbQUQaVmXW//2dbeqE9aZP2BMfd2ef5vX/aNsnJya1FzwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA/9Cy62bp/jznxmG3Uu4Nkf/JraFFSW9R4CASwyK02fTwMm5/JF5lneI3VnS6ON4cSZg3339d5+4eshgfhVNb77N6X4XvQm3yBlw9CxGpUMrWR6Jt9kBrRVJFYjErQ7y97uSu8xBnQXt1ZXHRIA1xHfKfORH9rKq1UNyKwqwr31kVKXEopsHNQz1EYQxRRmcB/XO8SxIfMxuaN+Apiego+P0SjdJHJhH3/nUZ4vcyxNuGEMPV9GxHQ5Tj0xMvjikcZgHyB4sMsgY/c3PuKxIia6BKVawN3l6bC/J0/yUp7DkE6Ee7tOY+N4XJI/eNczGq1C7jcu56fX22u/RsSsxcp65U+7TmedB+b1lNmRM6Fy0DVbx69giHbgtp+JIUsnXJezBPK+5WO774oTKJxuVGK0xNvYYIFyK2EgaPSWMD0xWrLIUfLXdF2rCQPmmzaaCqMkQ53o4SW3OEVw0mvbqkjKXpglU+3obNd822L9rACHotIZKBKrNjhW+Zh3+OHV2K6NrB2zTSjcH7oyPUTgTpdCgxNo3/Q4T3yhohI0R2hMMJUT3tJ5Z9Hu2hXlupiQOJMJpULt7cdurLzSUR7oOoJPq166cNNAhZ3p7KNMwELdUSIB2lUtW64eddEeKvv7I/bdQFEd6TfZluSoU+83Av5ekIbWi7H28tAdJzazioXv1RjNLO3be8rfr5jBfhPiTtz3cy3dFhtz9PpgmpVPq2QbogGYmnlYs/OrUA53oozAg/SD8WL4Kag8MpLz/OeE90gu0sAfZoN6jKdwRTgJWu5kW4jGkKTbPwkgi1tkvTwEjQA3L+vlUGeNcyRNkRjmgKF8aGPDq8VsTH9BE6/M5prek3jGTDHJzXztOsCJf0i0Rtvc5NK0fIBtlE7pHFSwa2WUjXxeBDD7B9iHIjnNIUPlma4u1H7/YDtHbmz0bBgUSoDpZC+7QblDY/TBk0LHecCJdjOgu1g2FVVzsYlHo+LWJYq9G4PCfsuxRnDnIjnJJr2YugM/o5LV+L6dJkT6GyLXHt24RDhGv7yZeLFpFN5K6Wwp7lOZpCbZfizUEaYe07TYn2f7i+KEB6HMgn8tzWdkr7AEBT2HqSoTaLxDNdB6UWx4rW8vkUZhO5Sw9JsS2FWjeQXcopQF+ltIVe+4Lz2JbC/W7Ugo61vIgdZ3nWU1juUj871/U5yDv3p5TQ1izt/ZOGXnS0aPuZgB53siKWPmd5Hpm74e/bwkP+NrFdDxwstJFIv5saU9hVLh/L8nlPv8rV3xfOJb/Rkdy4S32GdjqunuwTO4cvuqd8pUW4pzB8/6oA9Rccww3LlUsKw+y7/JSm0NZ2/aBx2RLHsGg42aecvgLLfOOjw09cWaqm3SBXXxWg/oJT/ZHXq3R0G6Wy9fDISaEXcrrh01pTeGR//ZdKbPLT54B+vDhaqj5+/qDB0KdfkH3T6XjMe2M6bUHR4fyrinZIGtvqpiUL0xL3WyzIVic+DDe80o9lVkGwPlyVQ3xAS7WnkPySPzbMj9/D/B8MxL43ZOg6lprQ/j/jywIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgH/fP7kJcRBg5SufAAAAAElFTkSuQmCC",
+        url: "https://fluffy-cucurucho-df41e4.netlify.app/"
+      },
+      {
+        name: "TSN 2",
+        logo: "https://play-lh.googleusercontent.com/Wfh4tn-kWAGTUIMxVgyZ1g2BEHrdDtjyXwUdqJLwX6w640Lc3DJoLoZqoCSEbYWpTw",
+        url: "https://calm-croissant-12afd7.netlify.app/"
+      },
+      {
+        name: "TSN 3",
+        logo: "https://play-lh.googleusercontent.com/Wfh4tn-kWAGTUIMxVgyZ1g2BEHrdDtjyXwUdqJLwX6w640Lc3DJoLoZqoCSEbYWpTw",
+        url: "https://lustrous-liger-25782c.netlify.app/"
+      },
+      {
+        name: "TSN 4",
+        logo: "https://play-lh.googleusercontent.com/Wfh4tn-kWAGTUIMxVgyZ1g2BEHrdDtjyXwUdqJLwX6w640Lc3DJoLoZqoCSEbYWpTw",
+        url: "https://superlative-alfajores-6896d4.netlify.app/"
+      },
+      {
+        name: "TSN 5",
+        logo: "https://play-lh.googleusercontent.com/Wfh4tn-kWAGTUIMxVgyZ1g2BEHrdDtjyXwUdqJLwX6w640Lc3DJoLoZqoCSEbYWpTw",
+        url: "https://imaginative-donut-233620.netlify.app/"
+      },
+      {
+        name: "TNT SPORTS 1",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2NSvkyk8Fx2UMBXFdEXS36TNepD6Uy8pMQveJnYRbDnXedcg2tttKHz3&s=10",
+        url: "https://guileless-trifle-c45bd0.netlify.app/"
+      },
+      {
+        name: "TNT SPORTS 2",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2NSvkyk8Fx2UMBXFdEXS36TNepD6Uy8pMQveJnYRbDnXedcg2tttKHz3&s=10",
+        url: "https://bright-gelato-1c2e32.netlify.app/"
+      },
+      {
+        name: "TNT SPORTS 3",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2NSvkyk8Fx2UMBXFdEXS36TNepD6Uy8pMQveJnYRbDnXedcg2tttKHz3&s=10",
+        url: "https://rad-elf-37d1bb.netlify.app/"
+      },
+      {
+        name: "TNT SPORTS 4",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2NSvkyk8Fx2UMBXFdEXS36TNepD6Uy8pMQveJnYRbDnXedcg2tttKHz3&s=10",
+        url: "https://incredible-meerkat-231a3b.netlify.app/"
+      },
+      {
+        name: "SSC 1",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://gleaming-meringue-fba932.netlify.app/"
+      },
+      {
+        name: "SSC 2",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://nimble-belekoy-a83e0c.netlify.app/"
+      },
+      {
+        name: "SSC 3",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://shimmering-choux-f6c58c.netlify.app/"
+      },
+      {
+        name: "SSC 4",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://courageous-longma-8f0f4c.netlify.app/"
+      },
+      {
+        name: "SSC 5",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://mellifluous-donut-5c4b44.netlify.app/"
+      },
+      {
+        name: "SSC EXTRA 1",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://ornate-tiramisu-95d7cc.netlify.app/"
+      },
+      {
+        name: "SSC EXTRA 2",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://delightful-youtiao-330cfd.netlify.app/"
+      },
+      {
+        name: "SSC EXTRA 3",
+        logo: "https://images.seeklogo.com/logo-png/49/1/ssc-tv-logo-png_seeklogo-498010.png",
+        url: "https://sparkly-scone-29fbd8.netlify.app/"
+      },
+      {
+        name: "ESPN 1",
+        logo: "https://static.vecteezy.com/system/resources/previews/027/127/453/non_2x/espn-logo-espn-icon-transparent-free-png.png",
+        url: "https://magical-unicorn-4663ed.netlify.app/"
+      },
+      {
+        name: "ESPN 2",
+        logo: "https://static.vecteezy.com/system/resources/previews/027/127/453/non_2x/espn-logo-espn-icon-transparent-free-png.png",
+        url: "https://capable-medovik-fc01f3.netlify.app/"
+      },
+      {
+        name: "ESPN 3",
+        logo: "https://static.vecteezy.com/system/resources/previews/027/127/453/non_2x/espn-logo-espn-icon-transparent-free-png.png",
+        url: "https://sweet-cocada-744c56.netlify.app/"
+      },
+      {
+        name: "Astro Sports Plus",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Astro_Sports_Plus_%282024%29.png/960px-Astro_Sports_Plus_%282024%29.png",
+        url: "https://astro-sports-plus.vercel.app/"
+      },
+      {
+        name: "Astro Sports UHD",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Astro_Sports_UHD_1_%282024%29.png",
+        url: "https://astro-uhd.vercel.app/"
+      },
+      {
+        name: "SONY TEN 1 HD",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Ten_HD.png",
+        url: "https://sonyten1.vercel.app"
+      },
+      {
+        name: "SONY TEN 2 HD",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Ten2_HD.png",
+        url: "https://sonyten2-drab.vercel.app/"
+      },
+      {
+        name: "SONY TEN 3 HD",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Ten3_HD.png",
+        url: "https://sonysportsten3.vercel.app/"
+      },
+      {
+        name: "SONY TEN 5 HD",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Six_HD.png",
+        url: "https://sonyten5.vercel.app/"
+      },
+      {
+        name: "BEIN SPORTS 1",
+        logo: "https://i.ibb.co/hgVx5GL/Bein-1.png",
+        url: "https://id-beinsports1.vercel.app/"
+      },
+      {
+        name: "BEIN EXTRA ES",
+        logo: "https://www.freelivesports.tv/wp-content/uploads/2025/01/bein-extra-spain-212.png",
+        url: "https://elegant-froyo-b3bf63.netlify.app/"
+      },
+      {
+        name: "Star Sports 1 Tamil",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil.png",
+        url: "https://effervescent-mochi-361c1f.netlify.app/"
+      },
+      {
+        name: "Star Sports 1 Tamil HD",
+        logo: "https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Sports_1_Tamil_HD.png",
+        url: "https://elegant-froyo-b3bf63.netlify.app/"
+      },
+      {
+        name: "Star Sports 2 Tamil HD",
+        logo: "https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Sports_2_Tamil_HD.png",
+        url: "https://courageous-capybara-035b6e.netlify.app/"
+      },
+      {
+        name: "Star Sports 1",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_1.png",
+        url: "https://harmonious-cupcake-58efb2.netlify.app/"
+      },
+      {
+        name: "Star Sports 1 HD",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Star_Sports_1_HD.png/2560px-Star_Sports_1_HD.png",
+        url: "https://amazing-meringue-46f410.netlify.app/"
+      },
+      {
+        name: "Star Sports 2",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2.png",
+        url: "https://stupendous-smakager-3f0e78.netlify.app/"
+      },
+      {
+        name: "Star Sports 2 HD",
+        logo: "https://jiotvimages.cdn.jio.com/dare_images/images/Star_Sports_2.png",
+        url: "https://magical-kangaroo-4fade2.netlify.app/"
+      },
+      {
+        name: "Star Sports 3",
+        logo: "https://img.media.jio.com/tvpimages/78/2/302117_1753186010525_l_medium.jpg",
+        url: "https://fascinating-bonbon-affcf0.netlify.app/"
+      },
+      {
+        name: "Star Sports 1 Hindi HD",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Star_Sports_1_HD.png/2560px-Star_Sports_1_HD.png",
+        url: "https://splendorous-cendol-2469b3.netlify.app/"
+      }
+    ]; // FIXED: Removed extra closing bracket
+
+    // App State
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    let searchTerm = '';
+    let countdownInterval = null;
+    let countdownDelayTimer = null;
+
+    // Enhanced debounced search
+    function debounceSearch(func, delay) {
+      return function(args) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => func.apply(this, args), delay);
+      };
+    }
+
+    // Update timestamp function
+    function updateTimestamp() {
+      try {
+        document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString('en-US', { 
+          timeZone: 'Asia/Kolkata', 
+          hour12: true 
+        });
+      } catch (error) {
+        console.error('Error updating timestamp:', error.message);
+        document.getElementById('lastUpdated').textContent = 'Error';
+      }
+    }
+
+    // Verification functions
+    function checkVerification() {
+      const verifiedUntil = localStorage.getItem('verified_until');
+      const now = Date.now();
+      return verifiedUntil && parseInt(verifiedUntil) > now;
+    }
+
+    function showVerificationModal() {
+      document.getElementById('verifyModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('mainContent').classList.add('blur-background');
+      document.querySelector('header').classList.add('blur-background');
+      document.querySelector('footer').classList.add('blur-background');
+      document.querySelector('.live-counter-container')?.classList.add('blur-background');
+      document.getElementById('telegramPopup').classList.add('blur-background');
+    }
+
+    function hideVerificationModal() {
+      document.getElementById('verifyModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+      document.getElementById('mainContent').classList.remove('blur-background');
+      document.querySelector('header').classList.remove('blur-background');
+      document.querySelector('footer').classList.remove('blur-background');
+      document.querySelector('.live-counter-container')?.classList.remove('blur-background');
+      document.getElementById('telegramPopup').classList.remove('blur-background');
+    }
+
+    function handleVerification() {
+      const verifyButton = document.querySelector('.verify-button');
+      verifyButton.disabled = true;
+      verifyButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+      
+      setTimeout(() => {
+        const expire = Date.now() + (24 * 60 * 60 * 1000);
+        localStorage.setItem('verified_until', expire.toString());
+        
+        const countdownElement = document.getElementById('verificationCountdown');
+        countdownElement.classList.remove('visible');
+        
+        const delayMinutes = 30 + Math.floor(Math.random() * 60);
+        const delayMs = delayMinutes * 60 * 1000;
+        
+        if (countdownDelayTimer) {
+          clearTimeout(countdownDelayTimer);
+        }
+        
+        countdownDelayTimer = setTimeout(() => {
+          updateVerificationCountdown();
+          countdownElement.classList.add('visible');
+        }, delayMs);
+        
+        window.location.href = 'https://vplink.in/NwbI';
+      }, 3000);
+    }
+
+    // Countdown functions
+    function updateVerificationCountdown() {
+      const verifiedUntil = localStorage.getItem('verified_until');
+      const countdownElement = document.getElementById('verificationCountdown');
+      const countdownText = document.getElementById('countdownText');
+      
+      if (!verifiedUntil) {
+        countdownElement.classList.remove('visible');
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+        return;
+      }
+      
+      const now = Date.now();
+      const timeLeft = parseInt(verifiedUntil) - now;
+      
+      if (timeLeft <= 0) {
+        countdownElement.classList.remove('visible');
+        localStorage.removeItem('verified_until');
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+        return;
+      }
+      
+      const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      
+      countdownText.textContent = `Verification: ${hours}h ${minutes}m`;
+      
+      if (hours < 1) {
+        countdownElement.classList.add('danger');
+        countdownElement.classList.remove('warning');
+      } else if (hours < 6) {
+        countdownElement.classList.add('warning');
+        countdownElement.classList.remove('danger');
+      } else {
+        countdownElement.classList.remove('warning', 'danger');
+      }
+    }
+
+    function startCountdownTimer() {
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+      }
+      
+      updateVerificationCountdown();
+      countdownInterval = setInterval(updateVerificationCountdown, 60000);
+    }
+
+    // Channel functions
+    function handleChannelPlay(url, isLiveEvent = false, name = '', openInNewTab = false) {
+      if (!checkVerification()) {
+        showVerificationModal();
+        return;
+      }
+
+      if (isLiveEvent && openInNewTab) {
+        window.open(url, '_blank');
+      } else if (isLiveEvent) {
+        openVideoModal(name, url);
+      } else {
+        window.open(url, '_blank');
+      }
+    }
+
+    function openVideoModal(title, url) {
+      document.getElementById('videoTitle').textContent = title;
+      document.getElementById('videoFrame').src = url;
+      document.getElementById('videoModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal() {
+      document.getElementById('videoModal').classList.remove('active');
+      document.getElementById('videoFrame').src = '';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Helper function to format start time in IST
+    function formatStartTime(timestamp) {
+      if (!timestamp) return "Soon";
+      
+      try {
+        const date = new Date(timestamp);
+        const options = { 
+          month: 'short', 
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZone: 'Asia/Kolkata'
+        };
+        return date.toLocaleDateString('en-IN', options) + ' IST';
+      } catch (e) {
+        return "Soon";
+      }
+    }
+
+function openInMiniPlayer(url, name) {
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("videoFrame");
+  const title = document.getElementById("videoTitle");
+
+  // Set video info
+  iframe.src = url;
+  title.textContent = name;
+
+  // Show modal
+  modal.classList.add("active");
+
+  // Prevent background scroll
+  document.body.style.overflow = "hidden";
+}
+
+// Close modal when clicking the "X" button
+function closeVideoModal() {
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("videoFrame");
+
+  // Hide modal
+  modal.classList.remove("active");
+
+  // Stop video playback
+  iframe.src = "";
+
+  // Allow background scroll again
+  document.body.style.overflow = "auto";
+}
+
+
+// Render functions with staggered animations
+function createChannelCard(channel, isLiveEvent = false, index = 0) {
+  const isUpcoming = channel.upcoming;
+
+  return `
+    <div class="channel-card" data-name="${channel.name.toLowerCase()}" style="animation-delay: ${index * 0.1}s">
+      <div class="channel-logo-container">
+        <img src="${channel.logo}" alt="${channel.name}" class="channel-logo" loading="lazy" />
+        ${isLiveEvent && channel.live ? '<div class="live-badge"><i class="fas fa-circle"></i> LIVE</div>' : ''}
+        ${isUpcoming ? '<div class="upcoming-badge"><i class="fas fa-clock"></i> UPCOMING</div>' : ''}
+      </div>
+      <div class="channel-name">${channel.name}</div>
+      ${isUpcoming ? 
+        `<button class="upcoming-button">
+          <i class="fas fa-clock"></i>
+          ${formatStartTime(channel.startTime)}
+        </button>` : 
+        `<button class="play-button" onclick="handleChannelPlay('${channel.url}', '${channel.name}', ${channel.openInNewTab || false})">
+          <i class="fas fa-play"></i>
+          ${isLiveEvent ? 'Watch Live' : 'Play'}
+        </button>`
+      }
+    </div>
+  `;
+}
+
+// New helper: handle how channels open
+function handleChannelPlay(url, name, openInNewTab) {
+  if (openInNewTab) {
+    window.open(url, "_blank");
+  } else {
+    openInMiniPlayer(url, name); // 👈 your mini player function
+  }
+}
+
+    function renderChannels() {
+      const liveEventsGrid = document.getElementById('liveEventsGrid');
+      liveEventsGrid.innerHTML = liveEvents.map((event, index) => createChannelCard(event, true, index)).join('');
+
+      const internationalGrid = document.getElementById('internationalGrid');
+      internationalGrid.innerHTML = internationalChannels.map((channel, index) => createChannelCard(channel, false, index)).join('');
+
+      const sportsGrid = document.getElementById('sportsGrid');
+      sportsGrid.innerHTML = sportsChannels.map((channel, index) => createChannelCard(channel, false, index)).join('');
+    }
+
+    const debouncedFilter = debounceSearch(() => {
+      const cards = document.querySelectorAll('.channel-card');
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        const shouldShow = name.includes(searchTerm.toLowerCase());
+        card.style.display = shouldShow ? 'block' : 'none';
+        card.style.opacity = shouldShow ? '1' : '0';
+      });
+    }, 300);
+
+    function filterChannels() {
+      debouncedFilter();
+    }
+
+    // Theme functions
+    function toggleTheme() {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.classList.toggle('light', currentTheme === 'light');
+      
+      const themeIcon = document.querySelector('#themeToggle i');
+      themeIcon.className = currentTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+      
+      localStorage.setItem('theme', currentTheme);
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize theme
+      if (currentTheme === 'light') {
+        document.body.classList.add('light');
+        document.querySelector('#themeToggle i').className = 'fas fa-sun';
+      }
+
+      // Render channels
+      renderChannels();
+
+      // Update timestamp
+      updateTimestamp();
+      setInterval(updateTimestamp, 120000);
+
+      // Start countdown timer
+      startCountdownTimer();
+
+      // Check verification
+      if (!localStorage.getItem('firstVisitShown')) {
+        showVerificationModal();
+        localStorage.setItem('firstVisitShown', 'true');
+      } else if (!checkVerification()) {
+        showVerificationModal();
+      }
+
+      // Enhanced search with debouncing
+      document.getElementById('searchInput').addEventListener('input', function(e) {
+        searchTerm = e.target.value;
+        filterChannels();
+      });
+
+      // Theme toggle
+      document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+      // Modal close handlers
+      document.getElementById('videoModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeVideoModal();
+        }
+      });
+
+      document.getElementById('verifyModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          hideVerificationModal();
+        }
+      });
+
+      // Security measures
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+            (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+            (e.ctrlKey && e.key === 'U')) {
+          e.preventDefault();
+        }
+      });
+
+      // Performance logging
+      const loadTime = performance.now() - startTime;
+      console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
+    });
+  </script>
+</body>
+</html>
