@@ -1,17 +1,15 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-<title>MatchesLinks – Premium Sports Channels</title>
-<meta content="Watch live sports channels in a big-screen player with fast, clean UI and crisp playback." name="description"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>MatchesLinks - Premium Sports Channels</title>
+  <meta name="description" content="Access premium sports channels and live events worldwide" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
     :root {
-      /* Enhanced Color System - HSL Values */
+      /* Enhanced Color System */
       --primary: 264, 83%, 75%;
       --primary-dark: 264, 83%, 65%;
       --primary-light: 264, 83%, 85%;
@@ -20,42 +18,53 @@
       --success: 142, 76%, 36%;
       --danger: 0, 84%, 60%;
       --warning: 38, 92%, 50%;
-
+      
       /* Background System */
       --background: 225, 25%, 8%;
       --background-secondary: 225, 25%, 12%;
       --surface: 225, 25%, 15%;
       --surface-hover: 225, 25%, 20%;
-
+      
       /* Text Colors */
       --foreground: 210, 20%, 98%;
       --foreground-secondary: 217, 11%, 85%;
       --foreground-muted: 217, 11%, 65%;
-
+      
       /* Glass Effects */
       --glass-bg: rgba(255, 255, 255, 0.05);
       --glass-border: rgba(255, 255, 255, 0.1);
       --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
+      
       /* Gradients */
       --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(282, 83%, 65%));
       --gradient-surface: linear-gradient(135deg, hsl(var(--surface)), hsl(225, 25%, 18%));
       --gradient-hero: linear-gradient(135deg, hsla(var(--primary), 0.1), hsla(282, 83%, 65%, 0.1));
-      --gradient-main-screen: linear-gradient(135deg, hsl(var(--background)), hsl(var(--background-secondary)));
-
+      
       /* Shadows */
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
       --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
       --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
       --shadow-glow: 0 0 40px hsla(var(--primary), 0.3);
-      --shadow-screen: 0 25px 60px rgba(0, 0, 0, 0.5);
-
+      
       /* Animation */
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --transition-fast: all 0.2s ease-out;
       --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
-
+    
+    .light {
+      --background: 0, 0%, 100%;
+      --background-secondary: 0, 0%, 98%;
+      --surface: 0, 0%, 95%;
+      --surface-hover: 0, 0%, 90%;
+      --foreground: 225, 25%, 8%;
+      --foreground-secondary: 225, 25%, 20%;
+      --foreground-muted: 225, 25%, 45%;
+      --glass-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
     /* Reset & Base */
     * {
       margin: 0;
@@ -63,7 +72,7 @@
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
     }
-
+    
     body {
       font-family: 'Inter', sans-serif;
       background: hsl(var(--background));
@@ -74,11 +83,9 @@
       touch-action: manipulation;
       line-height: 1.6;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-      will-change: auto;
-      transform: translateZ(0);
     }
-
-    /* Animated Background with Enhanced Glows - Optimized for mobile */
+    
+    /* Animated Background */
     body::before {
       content: '';
       position: fixed;
@@ -86,95 +93,304 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background:
-        radial-gradient(circle at 20% 50%, hsla(var(--primary), 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, hsla(282, 83%, 65%, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, hsla(var(--accent), 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 60% 30%, hsla(var(--primary), 0.1) 0%, transparent 40%);
+      background: 
+        radial-gradient(circle at 20% 50%, hsla(var(--primary), 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, hsla(282, 83%, 65%, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, hsla(var(--accent), 0.05) 0%, transparent 50%);
       z-index: -1;
       animation: backgroundShift 20s ease-in-out infinite;
-      will-change: opacity;
     }
-
+    
     @keyframes backgroundShift {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.8; }
     }
-
-    /* Enhanced Glow Effects - Reduced for mobile performance */
-    body::after {
-      content: '';
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background:
-        radial-gradient(circle at 25% 25%, hsla(var(--primary), 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, hsla(282, 83%, 65%, 0.05) 0%, transparent 50%);
-      z-index: -1;
-      animation: slowRotate 60s linear infinite;
-      will-change: transform;
-    }
-
-    @keyframes slowRotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Reduce animations on mobile for better performance */
-    @media (max-width: 768px) {
-      body::before,
-      body::after {
-        animation: none;
-        opacity: 0.8;
-      }
-      
-      .main-screen-container::before {
-        animation: none !important;
-      }
-      
-      .live-badge {
-        animation: none;
-      }
-    }
-
+    
     /* Utility Classes */
+    .blur-background {
+      filter: blur(10px);
+      pointer-events: none;
+      user-select: none;
+    }
+    
     .glass {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       box-shadow: var(--glass-shadow);
     }
-
+    
     .glass-heavy {
       background: rgba(15, 23, 42, 0.4);
       backdrop-filter: blur(30px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
-
+    
+    .light .glass-heavy {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: hsla(var(--background), 0.9);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: hsl(var(--foreground));
+      transition: var(--transition);
+    }
+    
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+    
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+      background: var(--gradient-primary);
+      color: white;
+      font-size: 1.3rem;
+      box-shadow: var(--shadow-glow);
+      transition: var(--transition);
+    }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(5deg) scale(1.05);
+      box-shadow: 0 0 60px hsla(var(--primary), 0.5);
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .search-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-input {
+      background: hsl(var(--surface));
+      border: 1px solid var(--glass-border);
+      border-radius: 2rem;
+      padding: 0.75rem 1rem 0.75rem 3rem;
+      color: hsl(var(--foreground));
+      width: 220px;
+      transition: var(--transition);
+      font-size: 0.875rem;
+      outline: none;
+      backdrop-filter: blur(10px);
+    }
+    
+    .search-input:focus {
+      border-color: hsl(var(--primary));
+      box-shadow: 0 0 0 3px hsla(var(--primary), 0.2);
+      background: hsl(var(--surface-hover));
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      color: hsl(var(--foreground-muted));
+      font-size: 0.875rem;
+      transition: var(--transition);
+    }
+    
+    .search-input:focus + .search-icon {
+      color: hsl(var(--primary));
+    }
+    
+    .theme-toggle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      background: hsl(var(--surface));
+      color: hsl(var(--foreground));
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .theme-toggle:hover {
+      background: hsl(var(--surface-hover));
+      transform: rotate(180deg) scale(1.1);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    /* Verification Countdown */
+    .verification-countdown {
+      position: absolute;
+      top: -10px;
+      right: 0;
+      background: linear-gradient(135deg, hsl(var(--success)), hsl(142, 70%, 45%));
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+      animation: pulse 2s infinite;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: var(--transition);
+    }
+    
+    .verification-countdown.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .verification-countdown.warning {
+      background: linear-gradient(135deg, hsl(var(--warning)), hsl(48, 96%, 53%));
+      color: black;
+    }
+    
+    .verification-countdown.danger {
+      background: linear-gradient(135deg, hsl(var(--danger)), hsl(0, 72%, 51%));
+      animation: pulse 1s infinite;
+    }
+    
     /* Main Container */
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
-
-    /* Main Video Screen - Enhanced with More Glow */
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 1.5rem;
+      border-radius: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-hero);
+      border-radius: 1.5rem;
+      opacity: 0.8;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--primary)));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: hsl(var(--foreground-secondary));
+      max-width: 48rem;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    
+    .hero-badge {
+      padding: 0.6rem 1.2rem;
+      border-radius: 2rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: hsl(var(--foreground-secondary));
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .hero-badge:hover {
+      transform: translateY(-2px);
+      background: hsl(var(--surface-hover));
+      color: hsl(var(--primary));
+    }
+    
+    /* Main Video Screen */
     .main-screen-container {
       position: relative;
       margin-bottom: 3rem;
       border-radius: 1.5rem;
       overflow: hidden;
-      background: var(--gradient-main-screen);
+      background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--background-secondary)));
       border: 1px solid var(--glass-border);
       box-shadow: 
-        var(--shadow-screen),
+        0 25px 60px rgba(0, 0, 0, 0.5),
         0 0 80px hsla(var(--primary), 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
-
+    
     .main-screen-container::before {
       content: '';
       position: absolute;
@@ -189,12 +405,12 @@
       filter: blur(10px);
       animation: pulseGlow 4s ease-in-out infinite;
     }
-
+    
     @keyframes pulseGlow {
       0%, 100% { opacity: 0.3; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.02); }
     }
-
+    
     .main-screen {
       position: relative;
       width: 100%;
@@ -207,19 +423,19 @@
       border-radius: 1.5rem;
       overflow: hidden;
     }
-
+    
     .main-screen iframe {
       width: 100%;
       height: 100%;
       border: none;
       border-radius: 1.5rem;
     }
-
+    
     .screen-placeholder {
       text-align: center;
       color: hsl(var(--foreground-muted));
     }
-
+    
     .screen-placeholder i {
       font-size: 4rem;
       margin-bottom: 1rem;
@@ -227,30 +443,30 @@
       color: hsl(var(--primary));
       filter: drop-shadow(0 0 20px hsla(var(--primary), 0.5));
     }
-
+    
     .screen-placeholder h3 {
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
+    
     .screen-placeholder p {
       font-size: 1rem;
       opacity: 0.8;
     }
-
-    /* Channel Categories with Enhanced Glow */
+    
+    /* Category Sections */
     .category-section {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
-
+    
     .category-header {
       display: flex;
       align-items: center;
       gap: 0.75rem;
       margin-bottom: 2rem;
     }
-
+    
     .category-icon {
       width: 46px;
       height: 46px;
@@ -261,26 +477,23 @@
       justify-content: center;
       color: white;
       font-size: 1.2rem;
-      box-shadow: 
-        var(--shadow-glow),
-        0 0 30px hsla(var(--primary), 0.4);
+      box-shadow: var(--shadow-glow);
     }
-
+    
     .category-title {
       font-size: 1.75rem;
       font-weight: 800;
       color: hsl(var(--foreground));
       letter-spacing: -0.5px;
-      text-shadow: 0 0 20px hsla(var(--primary), 0.3);
     }
-
+    
     /* Channel Grid */
     .channels-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 1rem;
     }
-
+    
     .channel-card {
       padding: 0.875rem;
       border-radius: 1rem;
@@ -301,7 +514,7 @@
       transform: translateY(0);
       contain: layout style paint;
     }
-
+    
     .channel-card:hover {
       transform: translateY(-4px);
       box-shadow: 
@@ -310,12 +523,12 @@
       border-color: hsl(var(--primary));
       background: hsl(var(--surface-hover));
     }
-
+    
     .channel-card:active {
       transform: translateY(-2px);
       transition: var(--transition-fast);
     }
-
+    
     .channel-card::before {
       content: '';
       position: absolute;
@@ -327,12 +540,12 @@
       transform: scaleX(0);
       transition: var(--transition);
     }
-
+    
     .channel-card:hover::before {
       transform: scaleX(1);
       box-shadow: 0 0 10px hsla(var(--primary), 0.5);
     }
-
+    
     .channel-logo-container {
       height: 60px;
       display: flex;
@@ -341,7 +554,7 @@
       margin-bottom: 0.5rem;
       position: relative;
     }
-
+    
     .channel-logo {
       max-height: 60px;
       max-width: 120px;
@@ -350,14 +563,14 @@
       transition: var(--transition);
       filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
     }
-
+    
     .channel-card:hover .channel-logo {
       transform: scale(1.04);
       filter: 
         drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3))
         drop-shadow(0 0 15px hsla(var(--primary), 0.3));
     }
-
+    
     .channel-name {
       font-size: 0.9rem;
       font-weight: 600;
@@ -371,7 +584,7 @@
       line-height: 1.3;
       margin-bottom: 0.5rem;
     }
-
+    
     .play-button {
       width: 100%;
       padding: 0.4rem;
@@ -390,31 +603,31 @@
       box-shadow: 0 2px 8px hsla(var(--primary), 0.3);
       min-height: 36px;
     }
-
+    
     .play-button:hover {
       transform: translateY(-1px);
       box-shadow: 
         0 4px 15px hsla(var(--primary), 0.5),
         0 0 20px hsla(var(--primary), 0.3);
     }
-
+    
     .play-button:active {
       transform: translateY(0);
     }
-
+    
     .play-button.soon-button {
       background: linear-gradient(135deg, hsl(215, 16%, 47%), hsl(215, 16%, 37%));
       cursor: not-allowed;
       opacity: 0.7;
       pointer-events: none;
     }
-
+    
     .play-button.soon-button:hover {
       transform: none;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
-
-    /* Live badge with enhanced glow */
+    
+    /* Badges */
     .live-badge {
       position: absolute;
       top: 0.5rem;
@@ -433,8 +646,25 @@
         0 0 15px hsla(var(--danger), 0.3);
       z-index: 5;
     }
-
-    /* Countdown badge for upcoming events */
+    
+    .upcoming-badge {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      background: linear-gradient(135deg, hsl(215, 50%, 50%), hsl(215, 50%, 40%));
+      color: white;
+      padding: 0.2rem 0.4rem;
+      border-radius: 1rem;
+      font-size: 0.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.3);
+      z-index: 5;
+    }
+    
     .countdown-badge {
       position: absolute;
       top: 0.5rem;
@@ -453,28 +683,13 @@
         0 0 15px hsla(var(--warning), 0.3);
       z-index: 5;
     }
-
-    /* Upcoming badge for scheduled events */
-    .upcoming-badge {
-      position: absolute;
-      top: 0.5rem;
-      left: 0.5rem;
-      background: linear-gradient(135deg, hsl(215, 50%, 50%), hsl(215, 50%, 40%));
-      color: white;
-      padding: 0.2rem 0.4rem;
-      border-radius: 1rem;
-      font-size: 0.5rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.2rem;
-      box-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.3);
-      z-index: 5;
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(0.98); }
     }
-
-
-    /* Footer with glow */
+    
+    /* Footer */
     .footer {
       border-top: 1px solid var(--glass-border);
       padding: 1rem;
@@ -484,14 +699,14 @@
       margin-top: 1rem;
       box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
     }
-
+    
     .footer-text {
       color: hsl(var(--foreground-muted));
       font-size: 0.875rem;
       text-shadow: 0 0 10px hsla(var(--primary), 0.2);
     }
-
-    /* Fixed Elements with Enhanced Glow */
+    
+    /* Fixed Elements */
     .live-counter-container {
       position: fixed;
       bottom: 1.5rem;
@@ -504,13 +719,9 @@
       align-items: center;
       gap: 0.25rem;
       backdrop-filter: blur(20px);
-      box-shadow: 
-        var(--shadow-md),
-        0 0 30px hsla(var(--primary), 0.2);
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-md);
     }
-
+    
     .live-counter {
       display: flex;
       align-items: center;
@@ -519,7 +730,7 @@
       font-weight: 600;
       color: hsl(var(--foreground));
     }
-
+    
     .live-count {
       background: transparent;
       padding: 0.2rem 0.6rem;
@@ -529,13 +740,14 @@
       display: inline-flex;
       align-items: center;
     }
-
+    
     .last-updated {
       font-size: 0.65rem;
       opacity: 0.7;
       color: hsl(var(--foreground-muted));
     }
-
+    
+    /* Telegram Popup */
     .telegram-popup {
       position: fixed;
       bottom: 1.5rem;
@@ -551,14 +763,12 @@
       background: linear-gradient(135deg, hsl(200, 85%, 45%), hsl(220, 80%, 50%));
       color: white;
       text-decoration: none;
-      box-shadow: 
-        var(--shadow-md),
-        0 0 25px rgba(0, 123, 255, 0.3);
+      box-shadow: var(--shadow-md);
       transition: var(--transition);
       opacity: 0.9;
       min-height: 44px;
     }
-
+    
     .telegram-popup:hover {
       transform: translateY(-2px);
       box-shadow: 
@@ -566,85 +776,248 @@
         0 0 35px rgba(0, 123, 255, 0.4);
       opacity: 1;
     }
+    
+    /* Video Modal */
+    #videoModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    #videoModal.active {
+      display: flex;
+    }
+    
+    #videoModal .video-content {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      background: #000;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+    
+    #videoModal iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+    }
+    
+    #videoModal .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #fff;
+      z-index: 10000;
+    }
+    
+    /* Verification Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .verify-modal {
+      width: 90%;
+      max-width: 28rem;
+      padding: 2.5rem;
+      border-radius: 1.25rem;
+      text-align: center;
+      z-index: 110;
+      backdrop-filter: blur(30px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .verify-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: hsl(var(--primary));
+      margin-bottom: 1.25rem;
+    }
+    
+    .verify-description {
+      color: hsl(var(--foreground-secondary));
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    
+    .tutorial-link {
+      display: block;
+      margin-bottom: 1.5rem;
+      color: hsl(var(--primary));
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .tutorial-link:hover {
+      background: hsla(var(--primary), 0.1);
+      transform: translateY(-1px);
+    }
+    
+    .verify-button {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: none;
+      background: var(--gradient-primary);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .verify-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px hsla(var(--primary), 0.5);
+    }
+    
+    .verify-button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    
+    .verify-button:hover::before {
+      transform: translateX(100%);
+    }
 
-    /* Responsive Design - Enhanced Mobile Optimizations */
+    /* Verification Processing Styles */
+    .verify-button.processing {
+      background: linear-gradient(135deg, hsl(var(--foreground-muted)), hsl(217, 11%, 55%));
+      cursor: not-allowed;
+    }
+
+    .verify-button.processing:hover {
+      transform: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .modal-overlay.no-close {
+      cursor: not-allowed;
+    }
+
+    .modal-overlay.no-close .verify-modal {
+      cursor: default;
+    }
+    
+    .redirect-message {
+      margin-top: 1rem;
+      color: hsl(var(--success));
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: none;
+    }
+    
+    /* Mobile Responsive */
     @media (max-width: 1024px) {
       .main-screen {
         height: 60vh;
         min-height: 400px;
       }
-
+      
       .channels-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1rem;
       }
-
-      .category-title {
-        font-size: 1.5rem;
-      }
     }
-
+    
     @media (max-width: 768px) {
       .container {
         padding: 1.5rem 1rem;
       }
-
+      
       .main-screen {
         height: 50vh;
         min-height: 350px;
       }
-
+      
       .main-screen-container {
         margin-bottom: 2rem;
         border-radius: 1rem;
       }
-
+      
       .main-screen {
         border-radius: 1rem;
       }
-
+      
       .main-screen iframe {
         border-radius: 1rem;
       }
-
+      
       .channels-grid {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 0.75rem;
       }
-
+      
       .channel-card {
         height: 160px;
         padding: 0.75rem;
       }
-
+      
       .category-title {
         font-size: 1.3rem;
       }
-
+      
       .category-icon {
         width: 40px;
         height: 40px;
         font-size: 1rem;
       }
-
+      
       .screen-placeholder i {
         font-size: 3rem;
       }
-
+      
       .screen-placeholder h3 {
         font-size: 1.2rem;
       }
-
-      .glass, .glass-heavy {
-        backdrop-filter: blur(10px);
-      }
-
+      
       .live-counter-container {
         bottom: 1rem;
         right: 1rem;
         padding: 0.5rem 0.75rem;
       }
-
+      
       .telegram-popup {
         bottom: 1rem;
         left: 1rem;
@@ -652,22 +1025,22 @@
         font-size: 0.75rem;
       }
     }
-
+    
     @media (max-width: 480px) {
       .container {
         padding: 1rem 0.75rem;
       }
-
+      
       .main-screen {
         height: 45vh;
         min-height: 300px;
       }
-
+      
       .channels-grid {
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
       }
-
+      
       .channel-card {
         height: 220px;
         padding: 0.75rem;
@@ -676,196 +1049,198 @@
       .channel-card:hover {
         transform: translateY(-2px);
       }
-
+      
       .channel-logo-container {
         height: 60px;
       }
-
+      
       .channel-logo {
         max-height: 60px;
         max-width: 110px;
       }
-
+      
       .category-title {
         font-size: 1.1rem;
       }
-
+      
       .category-section {
         margin-bottom: 2rem;
       }
-
+      
       .category-header {
         margin-bottom: 1.5rem;
       }
-
+      
       .play-button {
         font-size: 0.65rem;
         padding: 0.4rem;
         min-height: 32px;
       }
-
+      
       .channel-name {
         font-size: 0.85rem;
         height: 40px;
       }
-
+      
       .live-counter-container {
         bottom: 0.5rem;
         right: 0.5rem;
         font-size: 0.7rem;
         padding: 0.4rem 0.6rem;
       }
-
+      
       .telegram-popup {
         bottom: 0.5rem;
         left: 0.5rem;
         font-size: 0.7rem;
         padding: 0.4rem 0.6rem;
       }
-    }
-
-    /* Performance optimizations for low-end devices */
-    @media (max-width: 480px) and (max-height: 720px) {
-      .main-screen {
-        height: 40vh;
-        min-height: 250px;
-      }
       
-      .channel-card:hover {
-        transform: none;
-        box-shadow: var(--shadow-sm);
-      }
-      
-      .play-button:hover {
-        transform: none;
+      #videoModal iframe {
+        height: 300px;
       }
     }
-
+    
+    .hidden {
+      display: none;
+    }
+    
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
-
+    
     ::-webkit-scrollbar-track {
       background: hsl(var(--background));
     }
-
+    
     ::-webkit-scrollbar-thumb {
       background: hsl(var(--surface-hover));
       border-radius: 3px;
     }
-
+    
     ::-webkit-scrollbar-thumb:hover {
       background: hsl(var(--primary));
     }
-
-    /* Accessibility improvements */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      
-      body::before,
-      body::after {
-        animation: none !important;
-      }
-    }
-
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
-      .channel-card {
-        border: 2px solid var(--glass-border);
-      }
-      
-      .play-button {
-        border: 1px solid rgba(255, 255, 255, 0.3);
-      }
-    }
   </style>
-<style>
-	#lovable-badge {
-		position: fixed;
-		bottom: 10px;
-		right: 10px;
-		width: 141px;
-		padding: 5px 13px;	
-		background-color: #000;
-		color: #fff;
-		font-size: 12px;
-		border-radius: 5px;
-		font-family: sans-serif;
-		display: flex;
-		align-items: center;
-		gap: 4px;
-		z-index: 1000000;
-		text-transform: none !important;
-		font-feature-settings: normal !important;
-		font-weight: 400 !important;
-	}
-</style>
 </head>
 <body>
-<main>
-<div class="container">
-<!-- Main Video Screen -->
-<div class="main-screen-container">
-<div class="main-screen" id="mainScreen">
-<div class="screen-placeholder" id="screenPlaceholder">
-<i class="fas fa-tv"></i>
-<h3>Select a Channel</h3>
-<p>Choose from premium sports channels below</p>
-</div>
-</div>
-</div>
-<!-- Live Events -->
-<section class="category-section">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-bolt"></i>
-</div>
-<h2 class="category-title">Live Events</h2>
-</div>
-<div class="channels-grid" id="liveEventsGrid"></div>
-</section>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-satellite-dish"></i>
+        </div>
+        <div class="logo-text">MatchesLinks</div>
+      </a>
+      <div class="controls">
+        <div class="search-container">
+          <input type="text" placeholder="Search channels..." class="search-input" id="searchInput">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <div id="verificationCountdown" class="verification-countdown">
+        <i class="fas fa-shield-alt"></i>
+        <span id="countdownText">Verification: 24h 00m</span>
+      </div>
+    </div>
+  </header>
 
-<!-- Sports Channels -->
-<section class="category-section">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-trophy"></i>
-</div>
-<h2 class="category-title">Sports Channels</h2>
-</div>
-<div class="channels-grid" id="sportsGrid"></div>
-</section>
-</div>
-</main>
-<!-- Footer -->
-<footer class="footer">
-<div class="footer-text">
+  <!-- Main Content -->
+  <main class="container" id="mainContent">
+    <!-- Hero Section -->
+    <section class="hero glass-heavy">
+      <div class="hero-content">
+        <h1>Premium Sports Channels Collection</h1>
+        <p>Access the best live sports events and channels from around the world in one place. Watch your favorite teams compete in ultra high-definition quality.</p>
+        <div class="hero-badges">
+          <span class="hero-badge">🔥 HD Quality</span>
+          <span class="hero-badge">⚡ Live Events</span>
+          <span class="hero-badge">🌍 Global Coverage</span>
+          <span class="hero-badge">📱 Multi-Device</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Video Screen -->
+    <div class="main-screen-container">
+      <div class="main-screen" id="mainScreen">
+        <div class="screen-placeholder" id="screenPlaceholder">
+          <i class="fas fa-tv"></i>
+          <h3>Select a Channel</h3>
+          <p>Choose from premium sports channels below</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Events -->
+    <section class="category-section">
+      <div class="category-header">
+        <div class="category-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h2 class="category-title">Live Events</h2>
+      </div>
+      <div class="channels-grid" id="liveEventsGrid"></div>
+    </section>
+
+    <!-- Sports Channels -->
+    <section class="category-section">
+      <div class="category-header">
+        <div class="category-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h2 class="category-title">Sports Channels</h2>
+      </div>
+      <div class="channels-grid" id="sportsGrid"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-text">
       © 2024 MatchesLinks - Premium Sports Streaming Platform
     </div>
-</footer>
-<!-- Live Counter -->
-<div class="live-counter-container glass">
-<div class="live-counter">
-<span class="live-count">
-<script src="//widget.supercounters.com/ssl/online_t.js" type="text/javascript"></script>
-<script type="text/javascript">sc_online_t(1707487,"🔴 online","FF0000");</script>
-</span>
-</div>
-<div class="last-updated">Updated: <span id="lastUpdated">Loading...</span></div>
-</div>
-<!-- Telegram Popup -->
-<a class="telegram-popup" href="https://t.me/+e3-eAje291cxNGNl" id="telegramPopup">
-<i class="fab fa-telegram-plane"></i>
+  </footer>
+
+  <!-- Live Counter -->
+  <div class="live-counter-container glass">
+    <div class="live-counter">
+      <span class="live-count">
+        <script src="//widget.supercounters.com/ssl/online_t.js" type="text/javascript"></script>
+        <script type="text/javascript">sc_online_t(1707487,"🔴 online","FF0000");</script>
+      </span>
+    </div>
+    <div class="last-updated">Updated: <span id="lastUpdated">Loading...</span></div>
+  </div>
+
+  <!-- Telegram Popup -->
+  <a class="telegram-popup" href="https://t.me/+e3-eAje291cxNGNl" id="telegramPopup">
+    <i class="fab fa-telegram-plane"></i>
     Join Channel
   </a>
-<script>
 
-    <!-- Verification Modal -->
+  <!-- Video Modal -->
+  <div id="videoModal">
+    <div class="video-content">
+      <span class="close-button" onclick="closeVideoModal()">&times;</span>
+      <h2 id="videoTitle"></h2>
+      <iframe 
+        id="videoFrame" 
+        src="" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media; fullscreen" 
+        sandbox="allow-same-origin allow-scripts" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Verification Modal -->
   <div class="modal-overlay" id="verifyModal">
     <div class="verify-modal glass-heavy">
       <h2 class="verify-title">
@@ -878,14 +1253,22 @@
       <a href="https://t.me/tutorialbymatcheslinks/20" class="tutorial-link" target="_blank">
         <i class="fas fa-question-circle"></i> Confused? Watch The Tutorial how To do verification
       </a>
-      <button class="verify-button" onclick="handleVerification()">
+      <button class="verify-button" onclick="handleVerification()" id="verifyButton">
         VERIFY NOW
       </button>
+      <div id="redirectMessage" class="redirect-message">
+        <i class="fas fa-check-circle"></i> Verified! Redirecting...
+      </div>
     </div>
   </div>
-    const startTime = performance.now();
 
-    // Channel Data
+  <script>
+    // Performance monitoring
+    const startTime = performance.now();
+    let searchTimeout;
+    let countdownInterval = null;
+
+    // Channel Data from your indexxxx.html
     const liveEvents = [
       {
         name: "India W Vs Sri Lanka W (English)",
@@ -951,6 +1334,7 @@
         unlockTime: new Date("2025-09-30T23:45:00+05:30").getTime(),
       }
     ];
+
     const sportsChannels = [
       {
         name: "Fox Cricket 501 HD",
@@ -994,7 +1378,7 @@
       },
       {
         name: "TSN 1",
-        logo: "data:image/png;base64,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",
+        logo: "data:image/png;base64,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",
         url: "https://fluffy-cucurucho-df41e4.netlify.app/"
       },
       {
@@ -1149,10 +1533,9 @@
       }
     ];
 
-
-
     let selectedChannelData = null;
 
+    // Update timestamp function
     function updateTimestamp() {
       try {
         document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString('en-US', {
@@ -1165,10 +1548,16 @@
       }
     }
 
+    // Load channel on main screen (FIXED for MPD + key playback)
     function loadChannelOnMainScreen(channelData) {
       const mainScreen = document.getElementById('mainScreen');
       const placeholder = document.getElementById('screenPlaceholder');
       placeholder.style.display = 'none';
+
+      // remove any previous placeholder error markup if present
+      placeholder.innerHTML = '<i class="fas fa-tv"></i><h3>Select a Channel</h3><p>Choose from premium sports channels below</p>';
+
+      // Ensure we reuse iframe where possible but set correct attributes for MPD playback
       let iframe = mainScreen.querySelector('iframe');
       if (!iframe) {
         iframe = document.createElement('iframe');
@@ -1176,21 +1565,57 @@
         iframe.style.height = '100%';
         iframe.style.border = 'none';
         iframe.style.borderRadius = '1.5rem';
-        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen; clipboard-write';
-        iframe.referrerPolicy = 'no-referrer';
+
+        // Allow attributes that enable autoplay & key/drm flows
+        iframe.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture; clipboard-write; cross-origin-isolated";
+        // sandbox must allow same-origin & scripts for players that fetch keys & run JS
+        iframe.sandbox = "allow-same-origin allow-scripts allow-popups allow-presentation allow-forms allow-top-navigation-by-user-activation";
+        // best-referrer policy for embedded players
+        iframe.referrerPolicy = "no-referrer-when-downgrade";
         iframe.allowFullscreen = true;
+
+        // Attach onload/onerror handlers for fallback UI
+        iframe.onload = function() {
+          // If the iframe loads but the inner player needs a moment to start, keep placeholder hidden.
+          iframe.style.display = 'block';
+          placeholder.style.display = 'none';
+        };
+        iframe.onerror = function() {
+          // Show fallback in placeholder
+          iframe.style.display = 'none';
+          placeholder.style.display = 'block';
+          placeholder.innerHTML = '<i class="fas fa-exclamation-triangle"></i><h3>Stream Offline</h3><p>This stream is currently unavailable. Please try again later.</p>';
+        };
+
         mainScreen.appendChild(iframe);
       }
-      iframe.src = channelData.url;
+
+      // Force a clean reload to ensure new player context for MPD/key flows
+      try {
+        iframe.src = 'about:blank';
+      } catch (e) {
+        /* ignore */
+      }
+      setTimeout(() => {
+        iframe.src = channelData.url;
+      }, 120);
+
       selectedChannelData = channelData;
     }
 
+    // Handle channel play with verification check
     function handleChannelPlay(event, url, name, isUpcoming) {
       if (isUpcoming) {
         event.preventDefault();
         event.stopPropagation();
         return false;
       }
+      
+      if (!checkVerification()) {
+        showVerificationModal();
+        return false;
+      }
+      
       loadChannelOnMainScreen({ name, url });
       const mainEl = document.getElementById('mainScreen');
       if (mainEl && typeof mainEl.scrollIntoView === 'function') {
@@ -1200,6 +1625,7 @@
       }
     }
 
+    // Create channel card
     function createChannelCard(channel, isLiveEvent = false, index = 0) {
       const isUpcoming = isLiveEvent && channel.upcoming;
       const buttonText = isUpcoming ? 'Soon' : (isLiveEvent ? 'Watch Live' : 'Play');
@@ -1220,6 +1646,7 @@
       `;
     }
 
+    // Render channels
     function renderChannelsInstant() {
       const liveEventsGrid = document.getElementById('liveEventsGrid');
       liveEventsGrid.innerHTML = liveEvents.map((event, index) => createChannelCard(event, true, index)).join('');
@@ -1228,20 +1655,162 @@
       sportsGrid.innerHTML = sportsChannels.map((channel, index) => createChannelCard(channel, false, index)).join('');
     }
 
-    function renderChannels() {
-      renderChannelsInstant();
+    // STRICT VERIFICATION SYSTEM
+    function checkVerification() {
+      const verifiedUntil = localStorage.getItem('verified_until');
+      const now = Date.now();
+      return verifiedUntil && parseInt(verifiedUntil) > now;
     }
 
-    // Countdown logic
+    function showVerificationModal() {
+      const modal = document.getElementById('verifyModal');
+      modal.classList.add('active', 'no-close');
+      document.body.style.overflow = 'hidden';
+      
+      // Blur background elements
+      document.getElementById('mainContent').classList.add('blur-background');
+      document.querySelector('header').classList.add('blur-background');
+      document.querySelector('footer').classList.add('blur-background');
+      document.querySelector('.live-counter-container')?.classList.add('blur-background');
+      document.getElementById('telegramPopup').classList.add('blur-background');
+    }
+
+    function hideVerificationModal() {
+      const modal = document.getElementById('verifyModal');
+      modal.classList.remove('active', 'no-close');
+      document.body.style.overflow = 'auto';
+      
+      // Remove blur from background elements
+      document.getElementById('mainContent').classList.remove('blur-background');
+      document.querySelector('header').classList.remove('blur-background');
+      document.querySelector('footer').classList.remove('blur-background');
+      document.querySelector('.live-counter-container')?.classList.remove('blur-background');
+      document.getElementById('telegramPopup').classList.remove('blur-background');
+    }
+
+    function handleVerification() {
+      const verifyButton = document.getElementById('verifyButton');
+      const redirectMessage = document.getElementById('redirectMessage');
+      
+      // Disable button and show processing
+      verifyButton.disabled = true;
+      verifyButton.classList.add('processing');
+      verifyButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+      
+      // Show redirect message
+      redirectMessage.style.display = 'block';
+      
+      // Set verification for 24 hours INSTANTLY
+      setTimeout(() => {
+        const expire = Date.now() + (24 * 60 * 60 * 1000);
+        localStorage.setItem('verified_until', expire.toString());
+        localStorage.setItem('last_verification', Date.now().toString());
+        
+        // Start countdown timer
+        startCountdownTimer();
+        
+        // Redirect immediately to verification link
+        window.location.href = 'https://vplink.in/NwbI';
+      }, 1500);
+    }
+
+    // Enhanced Countdown functions
+    function updateVerificationCountdown() {
+      const verifiedUntil = localStorage.getItem('verified_until');
+      const countdownElement = document.getElementById('verificationCountdown');
+      const countdownText = document.getElementById('countdownText');
+      
+      if (!verifiedUntil) {
+        countdownElement.classList.remove('visible');
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+        return;
+      }
+      
+      const now = Date.now();
+      const timeLeft = parseInt(verifiedUntil) - now;
+      
+      if (timeLeft <= 0) {
+        // Countdown ended, show verification modal again
+        countdownElement.classList.remove('visible');
+        localStorage.removeItem('verified_until');
+        showVerificationModal();
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+        return;
+      }
+      
+      const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      
+      countdownText.textContent = `Verification: ${hours}h ${minutes}m`;
+      
+      if (hours < 1) {
+        countdownElement.classList.add('danger');
+        countdownElement.classList.remove('warning');
+      } else if (hours < 6) {
+        countdownElement.classList.add('warning');
+        countdownElement.classList.remove('danger');
+      } else {
+        countdownElement.classList.remove('warning', 'danger');
+      }
+      
+      countdownElement.classList.add('visible');
+    }
+
+    function startCountdownTimer() {
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+      }
+      
+      updateVerificationCountdown();
+      countdownInterval = setInterval(updateVerificationCountdown, 60000);
+    }
+
+    // Check if verification is needed on page load
+    function checkInitialVerification() {
+      const verifiedUntil = localStorage.getItem('verified_until');
+      const now = Date.now();
+      
+      if (!verifiedUntil || parseInt(verifiedUntil) <= now) {
+        // Show verification modal if not verified or expired
+        setTimeout(() => {
+          showVerificationModal();
+        }, 1000);
+      } else {
+        // Start countdown if verified
+        startCountdownTimer();
+      }
+    }
+
+    // Video Modal functions
+    function openVideoModal(title, url) {
+      document.getElementById('videoTitle').textContent = title;
+      document.getElementById('videoFrame').src = url;
+      document.getElementById('videoModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal() {
+      document.getElementById('videoModal').classList.remove('active');
+      document.getElementById('videoFrame').src = '';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Countdown logic for upcoming events
     (function(){
       function pad(n){ return n.toString().padStart(2,'0'); }
       function formatDistance(ms){
-        if(ms <= 0) return 'LIVE NOW';
+        if (ms <= 0) return 'LIVE NOW';
         const s = Math.floor(ms/1000);
         const hours = Math.floor(s/3600);
         const minutes = Math.floor((s%3600)/60);
         const seconds = s%60;
-        if(hours>0) return `${hours}h ${pad(minutes)}m ${pad(seconds)}s`;
+        if (hours > 0) return `${hours}h ${pad(minutes)}m ${pad(seconds)}s`;
         return `${pad(minutes)}m ${pad(seconds)}s`;
       }
 
@@ -1339,14 +1908,46 @@
       });
     })();
 
+    // Event listeners
     document.addEventListener('DOMContentLoaded', function() {
-      requestAnimationFrame(() => {
-        renderChannelsInstant();
-        updateTimestamp();
-        setInterval(updateTimestamp, 120000);
-        const loadTime = performance.now() - startTime;
-        console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
+      // Render channels
+      renderChannelsInstant();
+      
+      // Update timestamp
+      updateTimestamp();
+      setInterval(updateTimestamp, 120000);
+
+      // Check initial verification status
+      checkInitialVerification();
+
+      // Video modal close handler
+      document.getElementById('videoModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeVideoModal();
+        }
       });
+
+      // Prevent closing verification modal by clicking outside
+      document.getElementById('verifyModal').addEventListener('click', function(e) {
+        if (e.target === this && !this.classList.contains('no-close')) {
+          // Do nothing - modal cannot be closed
+        }
+      });
+
+      // Security measures
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+            (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+            (e.ctrlKey && e.key === 'U')) {
+          e.preventDefault();
+        }
+      });
+
+      // Performance logging
+      const loadTime = performance.now() - startTime;
+      console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
     });
   </script>
 </body>
