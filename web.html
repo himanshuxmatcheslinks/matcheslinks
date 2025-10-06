@@ -1332,24 +1332,104 @@
 
     const sportsChannels = [
       {
-        name: "Fox Cricket 501 HD",
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7kzpNQ3hvq3EILNDC4qvSezDzDN_UlXy-tA&s",
-        url: "https://idx.gdplayertv.to/embed/fox-cricket/"
+        name: "Usa Eaast",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbUV0ZwQ2eqYvHjl8sc7TpVyLgVMHhpINZYw&s",
+        url: "https://mpd-player-ivory.vercel.app/?id=usaeast"
+      },
+      {
+        name: "Usa Weest",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbUV0ZwQ2eqYvHjl8sc7TpVyLgVMHhpINZYw&s",
+        url: "https://mpd-player-ivory.vercel.app/?id=usawest"
+      },
+      {
+        name: "Universo East",
+        logo: "https://static.wikia.nocookie.net/logopedia/images/2/20/Universo_social_media_icon.jpg",
+        url: "https://mpd-player-ivory.vercel.app/?id=Universoeast"
+      },
+      {
+        name: "Universo West",
+        logo: "https://static.wikia.nocookie.net/logopedia/images/2/20/Universo_social_media_icon.jpg",
+        url: "https://mpd-player-ivory.vercel.app/?id=Universowest"
+      },
+      {
+        name: "PREMIERE",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2EEWVCQOoxt25cbgG1bTNeQirzrSFo73WnDlEqAdAciBS4fa92a6zb8cG&s=10",
+        url: "https://mpd-player-ivory.vercel.app/?id=PREMIERE"
+      },
+      {
+        name: "CBS",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaRn8jrZJuviL_R18LlX2vVcmugS_nud-tCOHGsa7zzLrrgrAujcovmmI&s=10",
+        url: "https://mpd-player-ivory.vercel.app/?id=cbs"
+      },
+      {
+        name: "NFl",
+        logo: "https://static.www.nfl.com/image/private/f_auto/league/khjxu70iiu14uvxridek",
+        url: "https://mpd-player-ivory.vercel.app/?id=nfl"
+      },
+      {
+        name: "Fancode Videos",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwecamCNkhOd40wQVfMtI7h-p9T_UOFKoXZ3tRMHyXW-exrgzC8SYREfw&s=10",
+        url: "https://mpd-player-ivory.vercel.app/?id=fancodevideos"
+      },
+      {
+        name: "DAZN Events",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLwPuwgMEOUaWB6VDltQNQf-n0AXPCX1rprg&s",
+        url: "https://mpd-player-ivory.vercel.app/?id=DAZN"
+      },
+      {
+        name: "BEIN 1",
+        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPQAAACUCAMAAACTBfSWAAAAgVBMVEX///9fMYxRFIRMAIH6+ftYJIhEAHxaKYnZ0uLl4evs6PC6q8tHAH5cLIpsRpRZJoisnMGCZqO7rstODIKIbKdVHYb08vfe2OZpQZLUzN6Yg7PMwtg9AHm0psepl77Qx9t5WZ3FutNzUJlkOY+TfK+jkLqMc6p/YKEyAHRuUpVWMYeoTKKOAAAKT0lEQVR4nO2baXuzLBOGFQXUuEUFd+MStc/7/3/gi0vUJEZzL7W9j3J+aNMELZcMw8xABIHD4XA4HA6Hw+FwOBwOh8PhcDgcDofD4fyb0K/uwBdQ585Xd+FwZAjO8ld34mhkDLnoHwEX/VPgon8KXPRPgYv+KTyK9mPHtlMnVneu00InZQ0LZSVfiTPbX/5Nw1OW2YWy2xl24d7//SvcifajtgxEC+IqKNtMe3kRTZvcFDG0jMrMr/HDp5lIYHCZG2dtIBJiVaZXbPelFqEV7D+aP2chWimZXghcSZJcyJSL3ovHHmGDfd63A5bFlJ+Wn2rIEEUMbn/GFWshMgwM8XlrINXuQgv/saR9JtFqi5hQw4zSIi5srzIsC6J6xXhPCcGWYbR2EcdObRqsoUQW5uy4ncRklFcnveIRAsPXXbH7C/XXBvbXuImOAYFins7/0Y9KbEnmo7VpjWsQ87qwXserIJay6fGcQNd3NIjOkHgHBq9V2/2F0mGi5RPCsHXu3biWmczaL3fvKTmARn3nptgDa4BBopvqpejCvam9jbclvqzUHCxazoAB6+f5pngQW0vvo5gE5M/uiKbEIs2oZiFaMwet2CXYBYNqcH3VlUNFe3Jqia6ztlrTK8DVwpQDAjx/pZ0Qi5CMahaiM2vQWRWKEtbjqJNXBn6o6OYiGsnjunP7uAFWPplATsgr/3thw2n3r2bR1IO95rbXISvJMOz5i2DoSNFGUGLJftkggG499tImVvlyzSksI+n7O4u+BJ114/ImIx68GqzX73CkaNEwSPM6EpUt7A4GrlZYfGEQHRm0yu73LPpEulfu7AOa/g0juKze4FDRzLNuxQwFIF7voyIIo412Wm7h7pnMotNuFhvVPIe7x9bZe7PqwY8VDeytlIOeodSt1n5ugc0OORb0hKXoXoWxWOrlExx82Wqp/VjzfopA7nEI6EbYmfzzq1tVuLvThmiBDgaOqzXTOlQ0ibZzy26IWX8jkuykQDWw0m3RzLeNBr5y+aGiYbrThMnVWGxOrJ17qah7fpuimWPoDVxf8WVHisbmRhLQkxLXEUIMttxYD7LYMr4tWijxoPr56kNF53uJe1GBWogld3enryS5vyf6MoSjK/7h2Nh7b7M2NEkjFNK9ScbOE0UJmdXsiBaiIRzFT0v+0VnWNkpJWpYm68ve+1BynzAM8bIrmoq9gcP2Ud23E31+FK0RpD+TmLvmzWxEH6LRx9D3ONGCZbV75n0JevOW7gxSC1dQtJ0lq0O+usNi/fDBgaJF6w1H5madI9tZ2kZ2RQv+sFiTh2j0QNENCTayiKE3RCoEpSJrEcUz+6JZcNcbOLpfDg4U7UhPk+uBLhajXXAC37rhG6Jp06s2yJ2NHSiaJuS6PakVExpsJtYArRZNHnlDtBBWfR2J+ccFB4oWKlhth2QOYFOa/TKI98793hEt1GM0uqy3HSna0UG9tWhpOdY7M1RzCN7ZdHlLtDyUR41gYWRHiqYYgy27dSQwpGE1xOeNdlru9greEi34Q8FsWZaoDxTNVmBovp7VKjLw8Ey0EuONVesKpP7T90QLUd/MEGcDHwZ/JRP5DKhHpJcJFAsaya2wUpCNjCzFmDwUBjdFU7OvD5MpGi3Gp/C7Mn4R38R6uj6ttTOB3mRwkQvzFzPBEa2xAvimaKEYS0fXoUB8GRx67zMPoTAMkq1ZuH8mljl7L9oCUq6WMtPKunX3XdE0GpPMcxr6cV2NefYxU5ohO64IV7Yu4tLCyw1J5sFdWD2PBY0sPFXH3xUt+OWwAQKhWVZw2AByX9TEP4XiA2Px4R9qHpP88OTVVsI4f5DhmBBL07L3tmjBHgy827oe9/es1Yrhp6FiiAmKfHnou0zDFrF32sepLtfEwpJZ0LGdrGXYxRaew+j3RQsREe/A+IhzCAvkqOpkk3OdpnaUSzqxrPK00jDODQglVEZ2mmaNmLiQVMsdrnFTXht32fFWgTki1kIzNPdSn7+PEuWEQAJc1wUEAuNsrzsVOfUqQAhgDQH7Tczr3ebtcIqCCL1/fE4g77FLMNq4QUhz8DgP+E7tmQaQgFg2WbFx0Ca2r3nFRJPgHJ3ChymQAUnqYw6aAVfaqbX6WUu6wpNUXZ2v+mKFrPnh5XJR/L2Vg6oKaxf66kpPL6kzjBllr3YzMzUs0tSJ185m/aO8dy5P/keO72mXwl92lSrhg3GofcVsiayEL1ck2S8uh8Ulv4VcGAkDXdXb3/AjST700+0xyKH30bVIGnV+q+zeQt2BnJA5/ok+bb0i9tkHXj0D8j2gUYLzpvFM3ehjUtog3HpNK6Ixe1Cvul6eG681db0e3pIzyc295lzphqqVHwghHbjsJ/qw2boBpeDcNC1GO0WcLyRLzG58aNiQLrGSaxA4bES1otT79UnJUZmFlHnFS1ahYQ13iJGxNjRuJNOPsyyzI1jWNnvhCxSS5sIu1E5lcli+8YtQVI0LM/X0qNv1kcZlSTG7/S7N1JvJZ19a1J1j0FppDHS01h3yWF/yxmG1pXyczkVwXMLxa1zQVCuLRYtlWPq0GRcjloe2urfouZ/rbPR8dL69pyVl/0gU6dbMhFMQe0Xf9PuAC5Fa4FK5ns9jqaahKii4W5sLEVGhSLLJR7WkN5RZdGVNTr2Wtk87fBkFmqr+8n//69zaFD5qHlJz8pCt1WwOpMlcaKpR/3ohGk85urN3QuCr0JLqNCZZAvvNRE+RptYSJTAeFuOiAneir1JvwrPoq9ROgd03ndJsqFz3nBbxxe97uhStgLaojIfmapkIp1k0HU/Az6K1QBdrJ45D9fsu0yzNynUWZpDy2lXWlqIblBZG8NCc5onmzKIzNHjtWTTL77pgRxfP9d5JkK9EvaT1tSUJOffmPTouepVMNX4hevTKckrGc8UL0SyILey6MRGqvumUHpBlSrVC1M9MtJ71py+iEjC/HD4VcTvzdtC1b1PnGI3xx1L0eEP/CqQvyanfoJhiRaUCKo0IBD1SxYacVtZDNukYlpC6VteCQKjf1rdZtD8XTGqQf3LnfxP7Y15LS1LIkdt6HdHQd+/hGLt8RbaQSmXXJIfm5Ktm0ePx4Y4wQJ/a99/GXuyH5J3o+5OEPgru3FEhAo0tWf2cVvM54ppEy4vgJAykz+n0nxIm0ykVLejMO7n3uVfULp5CWHaxyG2ddgxyu3Ye6XKOSGySf1Kv/xAZ4PGrSzSCgfAkmuZ6PodYJuoyr5to6k1x5izaQbdCWli++orBl3NJ8LnQqOqcMbPsJ9GC36KgibvcKvZE1HTSpogsFG9fUlp471wPaoXSsA5079vGJ7GkW4ZoWP0hwmfR7C3k4n7nQkJDojGHoREoB12KPiVe1EsAZq1J4n3bMJT10g6YJrPfw5WzlSPRWsQkG6J4+wpfkUy1cfzfIMwXo7lM4p/Z/ar2OwdkHVSTp1erDVR/UUeWp9YCvT0i7b409OI2HA6Hw+FwOBwOh8PhcDgcDofD4XA4HA6Hw+FwOBwOh8PhcDg/nf8DxJu7mIs087gAAAAASUVORK5CYII=",
+        url: "https://mpd-player-ivory.vercel.app/?id=Bein1"
+      },
+      {
+        name: "BEIN 2",
+        logo: "data:image/png;base64,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",
+        url: "https://mpd-player-ivory.vercel.app/?id=bein2"
+      },
+      {
+        name: "BEIN 3",
+        logo: "data:image/png;base64,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",
+        url: "https://mpd-player-ivory.vercel.app/?id=bein3"
+      },
+      {
+        name: "Sportv",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyjDUIwpUYLH0zRNH5ehUWe2x5AxLuct4JU6sDmMHN-Zd6_iP0zN22oZY&s=10",
+        url: "https://mpd-player-ivory.vercel.app/?id=sportv"
+      },
+      {
+        name: "1 MEDIASET HD",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Oo0YPM9Oaxah7WWSC9OXd39C7WcYlKkPTGS4RF6CFQ&s",
+        url: "https://mpd-player-ivory.vercel.app/?id=MEDIASET1"
+      },
+      {
+        name: "UFC",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_e9sy7xqbqp0ZqoiXnoMPhVhGEW8CVzcYUXclaFHNrF9lWhc4PZhHfsgP&s=10",
+        url: "https://mpd-player-ivory.vercel.app/?id=ufc"
+      },
+      {
+        name: "ESPN 1",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzmd4mg7ei0TS3GHwc9prZkTMG6pxDZkuZpw&usqp=CAU",
+        url: "https://mpd-player-ivory.vercel.app/?id=ESPN1"
       },
       {
         name: "Fubo Sports",
         logo: "https://images.fubo.tv/station_logos/fubo-sports23_m.png",
-        url: "https://fubo-sports.vercel.app/"
+        url: "https://mpd-player-ivory.vercel.app/?id=fubo"
       },
       {
         name: "SKY SPORTS LALIGA",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh1IoJO-olMV3VE5nHDw1NU8ExocnQS-wVwScHAwBbHjDSwaouUvu5eKb17DzuBUw98w&usqp=CAU",
-        url: "https://sky-sports-laliga.vercel.app/"
+        url: "https://mpd-player-ivory.vercel.app/?id=SKYSPORTS_LALIGA"
       },
       {
         name: "SKY SPORTS BUNDESLIGA",
         logo: "https://pbs.twimg.com/media/FYjlInYXEAIfUAT.jpg:large",
-        url: "https://reliable-mousse-84f3ca.netlify.app/"
+        url: "https://mpd-player-ivory.vercel.app/?id=SKYSPORTS_BUDESLIGA"
+      },
+      {
+        name: "SKY SPORTS BUNDESLIGA 2",
+        logo: "https://pbs.twimg.com/media/FYjlInYXEAIfUAT.jpg:large",
+        url: "https://mpd-player-ivory.vercel.app/?id=SKYSPORTS_BUDESLIGA2"
       },
       {
         name: "REAL MADRID TV",
